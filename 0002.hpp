@@ -53,7 +53,6 @@ public:
             }
             nextAdd = newValue / 10;
             newValue = newValue % 10;
-            std::cout << nextAdd << " " << newValue << "\n";
 
             curPtr = new ListNode(newValue);
             if(start == NULL)
