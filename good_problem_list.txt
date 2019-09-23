@@ -1,6 +1,0 @@
-0004, "Median of Two Sorted Arrays": 设计index pointor
-0010, "Regular Expression Matching": 正则式匹配问题, 要考虑的情况挺多的, 故而用递归间接的遍历了这些情况而不用写很多判定代码
-0011, "Container With Most Water": 也是一个index pointor
-0015, "3 Sum": 先fix一个数, 转化为2 Sum问题, 用index pointor解决
-0023, "Merge k Sorted Lists": 这种问题可以用分治算法来做
-0030, "Substring with Concatenation of All Words": 字符串问题中的滑动窗口方法, 以及用existFlag或者说是existDictionary这种以空间换时间的思想

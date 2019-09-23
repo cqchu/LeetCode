@@ -1,8 +1,6 @@
-**The code of leetcode problems, The i.hpp is the answer of i_th problem.**
-
-### 编程技巧
-1. 编程注意边界处以及特殊case的处理
-
-### 算法
-1. 滑动窗口方法: 常用于在数组中查找符合特定条件连续子数组
-2. 很多源数据为数组的问题都可以转化为多个index pointor以节约时空
+* 0004, "Median of Two Sorted Arrays": 设计index pointor</br>
+* 0010, "Regular Expression Matching": 正则式匹配问题, 要考虑的情况挺多的, 故而用递归间接的遍历了这些情况而不用写很多判定代码</br>
+* 0011, "Container With Most Water": 也是一个index pointor</br>
+* 0015, "3 Sum": 先fix一个数, 转化为2 Sum问题, 用index pointor解决</br>
+* 0023, "Merge k Sorted Lists": 这种问题可以用分治算法来做</br>
+* 0030, "Substring with Concatenation of All Words": 字符串问题中的滑动窗口方法, 以及用existFlag或者说是existDictionary这种以空间换时间的思想</br>
