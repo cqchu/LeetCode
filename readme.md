@@ -5,3 +5,4 @@
 * 0023, "Merge k Sorted Lists": 这种问题可以用分治算法来做</br>
 * 0030, "Substring with Concatenation of All Words": 字符串问题中的滑动窗口方法, 以及用existFlag或者说是existDictionary这种以空间换时间的思想</br>
 * 0032, "Longest Valid Parentheses": 类似于最长子串和，但更难一些，dp更新的条件更难找</br>
+* 0039, "Combination Sum": 这种题都是DFS求解，本质上都是暴力求解</br>
