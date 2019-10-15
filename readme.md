@@ -7,3 +7,5 @@
 * 0032, "Longest Valid Parentheses": 类似于最长子串和，但更难一些，dp更新的条件更难找</br>
 * 0039, "Combination Sum": 这种题都是DFS求解，本质上都是暴力求解</br>
 * 0040, "First Missing Positive": 类似与Counting Sort，都是借用Index表示一些信息</br>
+* 0042, "Trapping Rain Water": leetcode题解中提供了一种巧妙的做法</br>
+
