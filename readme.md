@@ -10,3 +10,4 @@
 * 0042, "Trapping Rain Water": leetcode题解中提供了一种巧妙的做法</br>
 * 0044, "Wildcard Matching": 一个典型的动归题, 非常便于理解动归, 但题解中有双指针的方法</br>
 * 0049, "Group Anagrams": 两种方法，一种需要排序，一种是Cnt编码，编程珠玑里也有提到，后者时间复杂度更低</br>
+* 0050, "Pow(x, n)": 里面降低时间复杂度的方法需要注意</br>
