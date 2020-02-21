@@ -16,3 +16,10 @@
 * 0062, "Unique Paths": 可以用递归解, 但是超时了, 所以用0050题的方法进行优化, 即使用DP, 同时这题中还用了2D DP->1D DP</br>
 * 0075, "Sort Colors": 类似于Count Sort, 然后第二种方法挺有意思的</br>
 * 0076, "Minimum Window Substring": 滑动窗口法, 注意左右移动指针的规则</br>
+* 0085, "Maximal Rectangle": 将2D问题转换为1D问题(Problem 0084), 1D问题使用栈来解决</br>
+* 0087, "Scramble String": 用递归的形式进行枚举, 并进行剪枝</br>
+* 0095, "Unique Binary Search Trees": 也没啥思想, 就是要抓住规律, 递归就完事了</br>
+* 0097, "Interleaving String": 还是用DP来优化递归, 然而我还我没写出来, 我好菜啊</br>
+* 0099, "Recover Binary Search Tree": 很多树的问题直接在树中不好解决可以将之转化成在序列中</br>
+* 0113, "Path Sum II": 这题与0039题类似, 这种递归求某个符合条件的子集的问题都可以加入stack简化问题</br>
+* 0115, "Distinct Subsequences": 一道朴实无华且枯燥的动归题, 遇到这种问题可以自己手写一个例子的dp数组, 然后找状态转移方程</br>
