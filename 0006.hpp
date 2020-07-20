@@ -28,10 +28,7 @@ Y A   H R
 P     I
 **********************************************************/
 
-#include <string>
-#include <iostream>
-
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

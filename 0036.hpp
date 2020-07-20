@@ -49,8 +49,7 @@ Note:
     The given board size is always 9x9.
 **************************************************/
 
-#include <vector>
-#include <set>
+#include "includes.hpp"
 
 class Solution {
 public:

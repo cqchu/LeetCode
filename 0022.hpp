@@ -15,11 +15,7 @@ For example, given n = 3, a solution set is:
 ]
 **********************************************************/
 
-#include <vector>
-#include <set>
-#include <string>
-
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

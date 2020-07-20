@@ -47,10 +47,7 @@ p = "mis*is*p*."
 Output: false
 **********************************************************/
 
-#include <string>
-#include <iostream>
-
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

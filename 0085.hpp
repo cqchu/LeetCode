@@ -16,6 +16,8 @@ Input:
 Output: 6
 **********************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     int maximalRectangle(vector<vector<char>>& matrix) {

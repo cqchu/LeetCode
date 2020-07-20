@@ -14,8 +14,7 @@ Follow up:
 If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 *************************************************/
 
-#include <vector>
-using namespace std;
+#include "includes.hpp"
 
 // class Solution {
 // public:
@@ -93,8 +92,8 @@ public:
         // cout << actualMax << " ";
         for (int i = 1; i < nums.size(); i++)
         {
-            maxSoFar = maxSoFar > 0 ? maxSoFar + nums[i] : nums[i]; // maxSoFar > 0, ËµÃ÷Ç°ÃæÕâ¸ö×Ó´®ÊÇÓÐgainµÄ, ¹Ê¶øÖµµÃ±£Áô    
-            actualMax = max(actualMax, maxSoFar);                   // maxSoFar¾ÍÊÇÒ»¸öDPµÄ×´Ì¬, 
+            maxSoFar = maxSoFar > 0 ? maxSoFar + nums[i] : nums[i]; // maxSoFar > 0, Ëµï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½gainï¿½ï¿½, ï¿½Ê¶ï¿½Öµï¿½Ã±ï¿½ï¿½ï¿½    
+            actualMax = max(actualMax, maxSoFar);                   // maxSoFarï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½DPï¿½ï¿½×´Ì¬, 
             // cout << actualMax << " ";
         }
         return actualMax;

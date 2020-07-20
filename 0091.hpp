@@ -21,6 +21,8 @@ Output: 3
 Explanation: It could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
 **********************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     /*

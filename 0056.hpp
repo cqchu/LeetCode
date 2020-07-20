@@ -17,8 +17,7 @@ Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 NOTE: input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.
 *************************************************/
 
-#include <vector>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

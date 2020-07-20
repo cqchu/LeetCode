@@ -16,9 +16,7 @@ A solution set is:
 ]
 **********************************************************/
 
-#include <vector>
-#include <algorithm>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

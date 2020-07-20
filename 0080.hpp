@@ -30,6 +30,8 @@ for (int i = 0; i < len; i++) {
 }
 *******************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {

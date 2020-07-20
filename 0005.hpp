@@ -16,9 +16,7 @@ Input: "cbbd"
 Output: "bb"
 **************************************************************/
 
-#include <string>
-
-using namespace std;
+#include "includes.hpp"
 
 class Solution 
 {

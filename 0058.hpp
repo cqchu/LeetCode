@@ -12,8 +12,7 @@ Input: "Hello World"
 Output: 5
 *************************************************/
 
-#include <vector>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

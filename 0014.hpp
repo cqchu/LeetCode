@@ -16,8 +16,7 @@ Output: ""
 Explanation: There is no common prefix among the input strings.
 **********************************************************/
 
-#include <string>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

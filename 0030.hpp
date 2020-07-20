@@ -21,11 +21,7 @@ Input:
 Output: []
 **********************************************************/
 
-#include <vector>
-#include <string>
-#include <iostream>
-#include <map>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

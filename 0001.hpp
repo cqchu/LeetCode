@@ -12,11 +12,7 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 **********************************************************************/
 
-#include <vector>
-#include <algorithm>
-#include <iostream>
-
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:
@@ -24,7 +20,7 @@ public:
         vector<int> result(2);
         for(int i=0; i<nums.size(); i++)
         {
-            vector<int>::iterator it= find(nums.begin(), nums.end(), target-nums[i]);
+            vector<int>::iterator it = find(nums.begin(), nums.end(), target-nums[i]);
             if(it != nums.end() && distance(nums.begin(), it) != i)
             {
                 result[0] = i;

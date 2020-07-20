@@ -20,6 +20,8 @@ Note:
 Your algorithm should run in O(n) time and uses constant extra space.
 ************************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     int firstMissingPositive(vector<int>& nums) {
@@ -27,7 +29,7 @@ public:
             if (nums[i] > 0 && nums[i] < nums.size() && nums[i] != i+1) {
                 int tmp = nums[nums[i]-1];
                 nums[nums[i]-1] = nums[i];
-                if (tmp != nums[i]) {// ·ÀÖ¹³öÏÖÖØ¸´Êý¾Ý
+                if (tmp != nums[i]) {// ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½
                     nums[i] = tmp;
                     i--;
                 }

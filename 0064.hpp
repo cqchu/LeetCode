@@ -17,6 +17,8 @@ Output: 7
 Explanation: Because the path 1→3→1→1→1 minimizes the sum.
 ********************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {

@@ -43,9 +43,7 @@ Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 **********************************************************/
 
-#include <string>
-#include <map>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

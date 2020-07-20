@@ -42,10 +42,7 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
 
 **********************************************************/
 
-#include <string>
-#include <cmath>
-
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

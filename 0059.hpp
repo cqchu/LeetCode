@@ -15,8 +15,7 @@ Output:
 ]
 *************************************************/
 
-#include <vector>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

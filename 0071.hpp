@@ -35,6 +35,8 @@ Input: "/a//b////c/d//././/.."
 Output: "/a/b/c"
 ****************************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     string simplifyPath(string path) {

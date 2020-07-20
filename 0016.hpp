@@ -10,10 +10,7 @@ Given array nums = [-1, 2, 1, -4], and target = 1.
 The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 **********************************************************/
 
-#include <vector>
-#include <algorithm>
-#include <cmath>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

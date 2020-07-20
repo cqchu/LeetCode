@@ -18,6 +18,8 @@ Given word = "SEE", return true.
 Given word = "ABCB", return false.
 *******************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     bool recurse(vector<vector<char>>& board, string& word, vector<vector<bool>>& visited, int i, int j, int curDepth) {

@@ -26,6 +26,8 @@ Input: n = 4, k = 9
 Output: "2314"
 ***************************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     int factorial(vector<int>& fac, int i) {

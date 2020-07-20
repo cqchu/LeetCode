@@ -3,7 +3,7 @@
 
 /*************************************************
 Description:
-The n-queens puzzle is the problem of placing n queens on an n¡Án chessboard such that no two queens attack each other.
+The n-queens puzzle is the problem of placing n queens on an nï¿½ï¿½n chessboard such that no two queens attack each other.
 Given an integer n, return the number of distinct solutions to the n-queens puzzle.
 
 Example:
@@ -24,8 +24,7 @@ Explanation: There are two distinct solutions to the 4-queens puzzle as shown be
 Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above.
 *************************************************/
 
-#include <vector>
-using namespace std;
+#include "includes.hpp"
 
 class Solution {
 public:

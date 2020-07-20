@@ -20,6 +20,8 @@ Follow up:
     Would this affect the run-time complexity? How and why?
 *******************************************/
 
+#include "includes.hpp"
+
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {

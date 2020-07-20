@@ -13,11 +13,7 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 1,1,5 → 1,5,1
 **********************************************************/
 
-#include <vector>
-#include <iostream>
-#include <algorithm>
-
-using namespace std;
+#include "includes.hpp"
 
 // 1, 7, 5, 9, 3 -> 1, 7, 9, 3, 5 若一直降序(9, 3), 则往前一直找到不降序的(5), 把后面降序中刚好比之大的(9)移到这个数字位置, 然后对后面的进行升序排序
     

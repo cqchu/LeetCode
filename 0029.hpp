@@ -16,8 +16,7 @@ Input: dividend = 7, divisor = -3
 Output: -2
 **********************************************************/
 
-#include <cmath>
-#include <iostream>
+#include "includes.hpp"
 
 class Solution {
 public:

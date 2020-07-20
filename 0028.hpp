@@ -14,8 +14,8 @@ Example 2:
 Input: haystack = "aaaaa", needle = "bba"
 Output: -1
 **********************************************************/
-#include <string>
-using namespace std;
+
+#include "includes.hpp"
 
 class Solution {
 public:
