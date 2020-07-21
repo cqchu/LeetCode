@@ -18,18 +18,17 @@ But the following [1,2,2,null,3,null,3] is not:
   2   2
    \   \
    3    3
-
 ****************************************************/
 
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
+#include "includes.hpp"
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 
 class Solution {
 public:

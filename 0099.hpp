@@ -43,7 +43,6 @@ Follow up:
 
 #include "includes.hpp"
 
-
 struct TreeNode {
     int val;
     TreeNode *left;
