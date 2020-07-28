@@ -28,3 +28,4 @@
 * 0126, "Word Ladder II": 把这个问题抽象成无向无权图中最短路径问题, 然后用双向BFS降低搜索空间的复杂度来解. 同时这里判断两个节点连接的方式是用unordered\_set来做</br>
 * 0128, "Longest Consecutive Sequence": 类似于Counting Sort的方法, 不同的是这里出于节约空间的考量把把原始数据放到一个unordered map中, 然后再在这unordered map中解决这个问题</br>
 * 131, "Palindrome Partitioning": 就和之前找数组的全排列横向，用回溯=递归+栈来解</br>
+* 132, "Palindrome Partitioning II": 一个例子分四个版本详细说明什么叫`DP = Recurse + Buffer`</br>

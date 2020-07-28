@@ -15,6 +15,7 @@
 #include <climits>
 
 #include <cmath>
+#include <cstring>
 
 using namespace std;
 
