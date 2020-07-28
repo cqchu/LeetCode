@@ -70,7 +70,6 @@ public:
     }
 };
 
-
 class Solution {
 public:
     Node* dfs(Node *node, unordered_map<int, Node*>& visited) {
