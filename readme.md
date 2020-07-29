@@ -30,3 +30,4 @@
 * 131, "Palindrome Partitioning": 就和之前找数组的全排列横向，用回溯=递归+栈来解</br>
 * 132, "Palindrome Partitioning II": 一个例子分四个版本详细说明什么叫`DP = Recurse + Buffer`</br>
 * 135, "Candy": 和42题一模一样，这种找一个数组内极大极小值再做操作的题都是左右两遍遍历解决</br>
+* 136, "Single Number": 异或操作找重复数字，往事如烟</br>
