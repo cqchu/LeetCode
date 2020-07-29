@@ -29,3 +29,4 @@
 * 0128, "Longest Consecutive Sequence": 类似于Counting Sort的方法, 不同的是这里出于节约空间的考量把把原始数据放到一个unordered map中, 然后再在这unordered map中解决这个问题</br>
 * 131, "Palindrome Partitioning": 就和之前找数组的全排列横向，用回溯=递归+栈来解</br>
 * 132, "Palindrome Partitioning II": 一个例子分四个版本详细说明什么叫`DP = Recurse + Buffer`</br>
+* 135, "Candy": 和42题一模一样，这种找一个数组内极大极小值再做操作的题都是左右两遍遍历解决</br>

@@ -54,7 +54,7 @@ public:
                 int curIdx = (i+j) % gas.size();
                 remain = remain + gas[curIdx] - cost[curIdx];
                 if (remain < 0) {
-                    i = i+j+1; // for this code, the factually time complexity is O(n)
+                    i = i+j+1; // for this code, the factual time complexity is O(n)
                     break;
                 }
             }
