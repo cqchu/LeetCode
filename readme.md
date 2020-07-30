@@ -31,3 +31,4 @@
 * 132, "Palindrome Partitioning II": 一个例子分四个版本详细说明什么叫`DP = Recurse + Buffer`</br>
 * 135, "Candy": 和42题一模一样，这种找一个数组内极大极小值再做操作的题都是左右两遍遍历解决</br>
 * 136, "Single Number": 异或操作找重复数字，往事如烟</br>
+* 142, "Linked List Cycle II": 环形链表，快慢指针，需要注意的是因为快指针速度是慢指针的两倍，所以慢指针最多只跑一圈就会被快指针套圈</br>
