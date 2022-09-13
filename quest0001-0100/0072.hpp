@@ -3,16 +3,14 @@
 
 /****************************************************
 Description:
-Given two words word1 and word2, find the minimum number of operations required to convert word1 to word2.
-You have the following 3 operations permitted on a word:
-    Insert a character
-    Delete a character
-    Replace a character
+Given two words word1 and word2, find the minimum number of operations required
+to convert word1 to word2. You have the following 3 operations permitted on a
+word: Insert a character Delete a character Replace a character
 
 Example 1:
 Input: word1 = "horse", word2 = "ros"
 Output: 3
-Explanation: 
+Explanation:
 horse -> rorse (replace 'h' with 'r')
 rorse -> rose (remove 'r')
 rose -> ros (remove 'e')
@@ -20,7 +18,7 @@ rose -> ros (remove 'e')
 Example 2:
 Input: word1 = "intention", word2 = "execution"
 Output: 5
-Explanation: 
+Explanation:
 intention -> inention (remove 't')
 inention -> enention (replace 'i' with 'e')
 enention -> exention (replace 'n' with 'x')
@@ -31,24 +29,25 @@ exection -> execution (insert 'u')
 #include "../includes.hpp"
 
 class Solution {
-public:
+  public:
     int minDistance(string word1, string word2) {
         int m = word1.size(), n = word2.size();
-        vector<vector<int>> dp(m+1, vector<int>(n+1, 0));
-        for (int i=0; i<=m; i++) {
+        vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+        for (int i = 0; i <= m; i++) {
             dp[i][0] = i;
         }
-        for (int i=0; i<=n; i++) {
+        for (int i = 0; i <= n; i++) {
             dp[0][i] = i;
         }
-        
-        for (int i=1; i<=m; i++) {
-            for (int j=1; j<=n; j++) {
-                if (word1[i-1] == word2[j-1]) {
-                    dp[i][j] = dp[i-1][j-1];
-                }
-                else {
-                    dp[i][j] = min(dp[i-1][j], min(dp[i][j-1], dp[i-1][j-1])) + 1;
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (word1[i - 1] == word2[j - 1]) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] =
+                        min(dp[i - 1][j], min(dp[i][j - 1], dp[i - 1][j - 1])) +
+                        1;
                 }
             }
         }

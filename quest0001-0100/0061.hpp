@@ -3,7 +3,8 @@
 
 /***************************************************
 Description:
-Given a linked list, rotate the list to the right by k places, where k is non-negative.
+Given a linked list, rotate the list to the right by k places, where k is
+non-negative.
 
 Example 1:
 Input: 1->2->3->4->5->NULL, k = 2
@@ -31,12 +32,12 @@ struct ListNode {
 };
 
 class Solution {
-public:
-    ListNode* rotateRight(ListNode* head, int k) { 
+  public:
+    ListNode *rotateRight(ListNode *head, int k) {
         int len = 0;
-        ListNode* curPos = head;
-        ListNode* tail = head;
-        while(curPos != NULL) {
+        ListNode *curPos = head;
+        ListNode *tail = head;
+        while (curPos != NULL) {
             curPos = curPos->next;
             len = len + 1;
             if (curPos != NULL)
@@ -44,14 +45,14 @@ public:
         }
         if (len == 0)
             return head;
-        
+
         k = k % len;
         if (k == 0)
             return head;
-        
+
         tail->next = head;
         curPos = head;
-        for (int i=0; i<len-k-1; i++) {
+        for (int i = 0; i < len - k - 1; i++) {
             curPos = curPos->next;
         }
         head = curPos->next;

@@ -18,36 +18,29 @@ Output: "bb"
 
 #include "../includes.hpp"
 
-class Solution 
-{
-public:
-    string longestPalindrome(string s) 
-    {
+class Solution {
+  public:
+    string longestPalindrome(string s) {
         int maxLen = 0, startIdx = 0;
-        for(int i=0; i<s.length(); i++)
-        {
+        for (int i = 0; i < s.length(); i++) {
             int offset1 = 0;
-            while(offset1<=i && s[i-offset1]==s[i+offset1])
+            while (offset1 <= i && s[i - offset1] == s[i + offset1])
                 offset1++;
 
             int offset2 = 0;
-            while(offset2<=i && s[i-offset2]==s[i+1+offset2])
+            while (offset2 <= i && s[i - offset2] == s[i + 1 + offset2])
                 offset2++;
 
             int tmpStartIdx = 0, tmpLen = 0;
-            if(offset2*2 > (offset1-1)*2 + 1)
-            {
-                tmpLen = offset2*2;
-                tmpStartIdx = i+1 - offset2;
-            }
-            else
-            {
-                tmpLen = (offset1-1)*2 + 1;
-                tmpStartIdx = i+1 - offset1;
+            if (offset2 * 2 > (offset1 - 1) * 2 + 1) {
+                tmpLen = offset2 * 2;
+                tmpStartIdx = i + 1 - offset2;
+            } else {
+                tmpLen = (offset1 - 1) * 2 + 1;
+                tmpStartIdx = i + 1 - offset1;
             }
 
-            if(tmpLen > maxLen)
-            {
+            if (tmpLen > maxLen) {
                 maxLen = tmpLen;
                 startIdx = tmpStartIdx;
             }

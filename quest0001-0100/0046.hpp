@@ -21,22 +21,23 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-public:
-    vector<vector<int> > recurse(const vector<int>& nums, vector<bool>& visitFlag) {
-        vector<vector<int> > res;
+  public:
+    vector<vector<int>> recurse(const vector<int> &nums,
+                                vector<bool> &visitFlag) {
+        vector<vector<int>> res;
         if (nums.size() == 0) {
             vector<int> vi;
             res.push_back(vi);
         }
-        for (int i=0; i<nums.size(); i++) {
+        for (int i = 0; i < nums.size(); i++) {
             if (visitFlag[i] != true) {
                 visitFlag[i] = true;
-                vector<vector<int> > tres = recurse(nums, visitFlag);
+                vector<vector<int>> tres = recurse(nums, visitFlag);
                 if (tres.size() == 0) {
                     vector<int> vi;
                     tres.push_back(vi);
                 }
-                for (int j=0; j<tres.size(); j++) {
+                for (int j = 0; j < tres.size(); j++) {
                     tres[j].push_back(nums[i]);
                     res.push_back(tres[j]);
                 }
@@ -45,9 +46,9 @@ public:
         }
         return res;
     }
-    vector<vector<int> > permute(vector<int>& nums) {
+    vector<vector<int>> permute(vector<int> &nums) {
         vector<bool> visitFlag(nums.size(), false);
-        vector<vector<int> > res = recurse(nums, visitFlag);
+        vector<vector<int>> res = recurse(nums, visitFlag);
         return res;
     }
 };

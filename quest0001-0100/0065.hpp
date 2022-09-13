@@ -21,11 +21,10 @@ Some examples:
 "-+3" => false
 "95a54e53" => false
 
-Note: It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one. However, here is a list of characters that can be in a valid decimal number:
-    Numbers 0-9
-    Exponent - "e"
-    Positive/negative sign - "+"/"-"
-    Decimal point - "."
+Note: It is intended for the problem statement to be ambiguous. You should
+gather all requirements up front before implementing one. However, here is a
+list of characters that can be in a valid decimal number: Numbers 0-9 Exponent -
+"e" Positive/negative sign - "+"/"-" Decimal point - "."
 
 Of course, the context of these characters also matters in the input.
 *******************************************/
@@ -33,21 +32,25 @@ Of course, the context of these characters also matters in the input.
 #include "../includes.hpp"
 
 class Solution {
-public:
+  public:
     bool maybeValid(char ch) {
-        return (ch >= '0' && ch <= '9') || ch == '+' || ch == '-' || ch == 'e' || ch == '.';
+        return (ch >= '0' && ch <= '9') || ch == '+' || ch == '-' ||
+               ch == 'e' || ch == '.';
     }
-    
+
     bool isNumber(string s) {
         int curPos = 0;
-        bool baseSignFlag = false, baseFlag=false, pointFlag = false, expFlag = false, powSignFlag = false, powFlag = false;
-        
+        bool baseSignFlag = false, baseFlag = false, pointFlag = false,
+             expFlag = false, powSignFlag = false, powFlag = false;
+
         int start = 0, end = s.size();
-        for (start=0; start<s.size() && s[start]==' '; start++);
-        for (end=s.size(); end>0 && s[end-1]==' '; end--);
-        s = s.substr(start, end-start);
-  
-        for (; curPos<s.size(); curPos++) {
+        for (start = 0; start < s.size() && s[start] == ' '; start++)
+            ;
+        for (end = s.size(); end > 0 && s[end - 1] == ' '; end--)
+            ;
+        s = s.substr(start, end - start);
+
+        for (; curPos < s.size(); curPos++) {
             if (!maybeValid(s[curPos]))
                 return false;
             if (s[curPos] == '+' || s[curPos] == '-') {
@@ -55,45 +58,42 @@ public:
                     baseSignFlag = true;
                 else
                     return false;
-            }
-            else if (s[curPos] >= '0' && s[curPos] <= '9') {
+            } else if (s[curPos] >= '0' && s[curPos] <= '9') {
                 baseSignFlag = true;
                 break;
-            }
-            else if (s[curPos] == '.') {
+            } else if (s[curPos] == '.') {
                 baseSignFlag = true;
                 break;
-            }
-            else 
+            } else
                 return false;
-                
         }
-        
-        for (; curPos<s.size(); curPos++) {
+
+        for (; curPos < s.size(); curPos++) {
             if (!maybeValid(s[curPos]))
                 return false;
-            if (s[curPos] >= '0' && s[curPos] <= '9') 
+            if (s[curPos] >= '0' && s[curPos] <= '9')
                 baseFlag = true;
-            else if (s[curPos]=='.' && pointFlag==false)
+            else if (s[curPos] == '.' && pointFlag == false)
                 pointFlag = true;
             else if (s[curPos] == 'e') {
                 pointFlag = true;
                 expFlag = true;
                 curPos++;
                 break;
-            }
-            else 
+            } else
                 return false;
         }
         if (curPos == s.size()) {
             pointFlag = true;
         }
-        
-        cout << baseSignFlag << baseFlag << pointFlag << expFlag << powSignFlag << powFlag << endl;
-        if (curPos == s.size() && baseSignFlag && baseFlag && pointFlag && !expFlag && !powSignFlag && !powFlag)
+
+        cout << baseSignFlag << baseFlag << pointFlag << expFlag << powSignFlag
+             << powFlag << endl;
+        if (curPos == s.size() && baseSignFlag && baseFlag && pointFlag &&
+            !expFlag && !powSignFlag && !powFlag)
             return true;
-        
-        for (; curPos<s.size(); curPos++) {
+
+        for (; curPos < s.size(); curPos++) {
             if (!maybeValid(s[curPos]))
                 return false;
             if (s[curPos] == '+' || s[curPos] == '-') {
@@ -101,28 +101,29 @@ public:
                     powSignFlag = true;
                 else
                     return false;
-            }
-            else if (s[curPos] >= '0' && s[curPos] <= '9') {
+            } else if (s[curPos] >= '0' && s[curPos] <= '9') {
                 powSignFlag = true;
                 break;
-            }
-            else 
+            } else
                 return false;
         }
-        
-        cout << baseSignFlag << baseFlag << pointFlag << expFlag << powSignFlag << powFlag << endl;
-        
-        for (; curPos<s.size(); curPos++) {
+
+        cout << baseSignFlag << baseFlag << pointFlag << expFlag << powSignFlag
+             << powFlag << endl;
+
+        for (; curPos < s.size(); curPos++) {
             if (!maybeValid(s[curPos]))
                 return false;
             if (s[curPos] >= '0' && s[curPos] <= '9')
                 powFlag = true;
-            else 
+            else
                 return false;
         }
-        cout << baseSignFlag << baseFlag << pointFlag << expFlag << powSignFlag << powFlag << endl;
-        
-        return baseSignFlag && baseFlag && pointFlag && expFlag && powSignFlag && powFlag;
+        cout << baseSignFlag << baseFlag << pointFlag << expFlag << powSignFlag
+             << powFlag << endl;
+
+        return baseSignFlag && baseFlag && pointFlag && expFlag &&
+               powSignFlag && powFlag;
     }
 };
 

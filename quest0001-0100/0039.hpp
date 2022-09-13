@@ -3,8 +3,10 @@
 
 /************************************************
 Description:
-Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
-The same repeated number may be chosen from candidates unlimited number of times.
+Given a set of candidate numbers (candidates) (without duplicates) and a target
+number (target), find all unique combinations in candidates where the candidate
+numbers sums to target. The same repeated number may be chosen from candidates
+unlimited number of times.
 
 Note:
     All numbers (including target) will be positive integers.
@@ -31,16 +33,18 @@ A solution set is:
 #include "../includes.hpp"
 
 class Solution {
-public:
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+  public:
+    vector<vector<int>> combinationSum(vector<int> &candidates, int target) {
         vector<vector<int>> sol;
         // sort()
-        for (int i=0; i<candidates.size(); i++) {
+        for (int i = 0; i < candidates.size(); i++) {
             if (candidates[i] < target) {
-                vector<int> tcandidates(candidates.begin()+i, candidates.end()); 
-                vector<vector<int>> tsol = combinationSum(tcandidates, target - candidates[i]);
+                vector<int> tcandidates(candidates.begin() + i,
+                                        candidates.end());
+                vector<vector<int>> tsol =
+                    combinationSum(tcandidates, target - candidates[i]);
                 if (tsol.size() != 0) {
-                    for (auto ts: tsol) {
+                    for (auto ts : tsol) {
                         ts.push_back(candidates[i]);
                         sol.push_back(ts);
                     }
@@ -56,4 +60,3 @@ public:
 };
 
 #endif
-

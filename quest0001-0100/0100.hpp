@@ -4,7 +4,8 @@
 /****************************************************
 Description:
 Given two binary trees, write a function to check if they are the same or not.
-Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+Two binary trees are considered the same if they are structurally identical and
+the nodes have the same value.
 
 Example 1:
 Input:     1         1
@@ -41,18 +42,16 @@ struct TreeNode {
 };
 
 class Solution {
-public:
-    bool checkTree(TreeNode* p, TreeNode* q) {
+  public:
+    bool checkTree(TreeNode *p, TreeNode *q) {
         if (p == NULL && q == NULL)
             return true;
-        if ((p == NULL && q != NULL) || (p != NULL && q == NULL) || (p->val != q->val))
+        if ((p == NULL && q != NULL) || (p != NULL && q == NULL) ||
+            (p->val != q->val))
             return false;
         return checkTree(p->left, q->left) & checkTree(p->right, q->right);
-
     }
-    bool isSameTree(TreeNode* p, TreeNode* q) {
-        return checkTree(p, q);
-    }
+    bool isSameTree(TreeNode *p, TreeNode *q) { return checkTree(p, q); }
 };
 
 #endif

@@ -2,7 +2,8 @@
 #define __0082_H
 
 /******************************************************
-Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.
+Given a sorted linked list, delete all nodes that have duplicate numbers,
+leaving only distinct numbers from the original list.
 
 Example 1:
 Input: 1->2->3->3->4->4->5
@@ -22,43 +23,40 @@ struct ListNode {
 };
 
 class Solution {
-public:
-    ListNode* deleteDuplicates(ListNode* head) {
+  public:
+    ListNode *deleteDuplicates(ListNode *head) {
         if (head == NULL)
             return head;
-        
-        ListNode *lastDicNode=NULL, *curNode=head;
+
+        ListNode *lastDicNode = NULL, *curNode = head;
         bool duplicateFlag = false;
-        while(curNode->next != NULL) {
+        while (curNode->next != NULL) {
             ListNode *nextNode = curNode->next;
             if (curNode->val == curNode->next->val) {
                 if (lastDicNode != NULL)
                     lastDicNode->next = curNode->next;
-                else 
+                else
                     head = curNode->next;
                 delete curNode;
                 duplicateFlag = true;
-            }
-            else {
+            } else {
                 if (duplicateFlag == true) {
                     if (lastDicNode != NULL)
                         lastDicNode->next = curNode->next;
-                    else 
+                    else
                         head = curNode->next;
                     delete curNode;
                     duplicateFlag = false;
-                }
-                else {
+                } else {
                     lastDicNode = curNode;
                 }
-                
             }
             curNode = nextNode;
         }
         if (duplicateFlag == true) {
-            if (lastDicNode != NULL) 
+            if (lastDicNode != NULL)
                 lastDicNode->next = NULL;
-            else 
+            else
                 head = NULL;
             delete curNode;
         }

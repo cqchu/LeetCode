@@ -3,7 +3,8 @@
 
 /************************************************************
 Description:
-Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+Given a sorted array and a target value, return the index if the target is
+found. If not, return the index where it would be if it were inserted in order.
 You may assume no duplicates in the array.
 
 Example 1:
@@ -27,22 +28,19 @@ Output: 0
 #include "../includes.hpp"
 
 class Solution {
-public:
-    int searchInsert(vector<int>& nums, int target) {
-        int startIdx=0, endIdx=nums.size()-1;
+  public:
+    int searchInsert(vector<int> &nums, int target) {
+        int startIdx = 0, endIdx = nums.size() - 1;
         int midIdx = 0;
         while (startIdx < endIdx - 1) {
             midIdx = (startIdx + endIdx) / 2;
             if (nums[midIdx] == target) {
                 return midIdx;
-            }
-            else if (nums[midIdx] < target) {
+            } else if (nums[midIdx] < target) {
                 startIdx = midIdx;
-            }
-            else if (nums[midIdx] > target) {
+            } else if (nums[midIdx] > target) {
                 endIdx = midIdx;
             }
-            
         }
         if (nums[startIdx] > target)
             return startIdx;

@@ -4,7 +4,8 @@
 /****************************************************
 Description:
 Given a binary tree, find its minimum depth.
-The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+The minimum depth is the number of nodes along the shortest path from the root
+node down to the nearest leaf node.
 
 Note: A leaf is a node with no children.
 
@@ -28,19 +29,19 @@ struct TreeNode {
 };
 
 class Solution {
-public:
-    void DFS(TreeNode* root, int curDepth, int &minDepth) {
+  public:
+    void DFS(TreeNode *root, int curDepth, int &minDepth) {
         if (root == NULL)
             return;
         if (root->left == NULL && root->right == NULL) {
             minDepth = curDepth > minDepth ? minDepth : curDepth;
             return;
         }
-        DFS(root->left, curDepth+1, minDepth);
-        DFS(root->right, curDepth+1, minDepth);
+        DFS(root->left, curDepth + 1, minDepth);
+        DFS(root->right, curDepth + 1, minDepth);
     }
-    
-    int minDepth(TreeNode* root) {
+
+    int minDepth(TreeNode *root) {
         if (root == NULL)
             return 0;
         int minDepth = INT_MAX;

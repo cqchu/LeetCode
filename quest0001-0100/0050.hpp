@@ -29,7 +29,7 @@ Note:
 // �������ʱ�仹����, Ȼ����Ϊ�ұߵ�����ߣ�����ֱ�Ӹ��ý��
 // ��ʱʱ�临�Ӷ�ΪO(logn)
 class Solution {
-public:
+  public:
     double myPow(double x, int n) {
         if (x == 0 && n < 0)
             return numeric_limits<double>::infinity();
@@ -38,22 +38,20 @@ public:
         if (n == 1)
             return x;
         if (n == -1)
-            return 1/x;
-        
+            return 1 / x;
+
         // int nLeft = n/2;
         // int nRight = n - nLeft;
         // double lres = myPow(x, nLeft);
         // double rres = myPow(x, nRight);
         int halfN = n / 2;
         double tres = myPow(x, halfN);
-        double t = n > 0 ? x : 1/x;
+        double t = n > 0 ? x : 1 / x;
         if (n % 2 == 0)
-            return tres*tres;
+            return tres * tres;
         else
-            return tres*tres*t;
-        
+            return tres * tres * t;
     }
 };
-
 
 #endif

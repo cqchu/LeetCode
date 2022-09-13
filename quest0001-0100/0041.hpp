@@ -23,25 +23,24 @@ Your algorithm should run in O(n) time and uses constant extra space.
 #include "../includes.hpp"
 
 class Solution {
-public:
-    int firstMissingPositive(vector<int>& nums) {
-        for (int i=0; i<nums.size(); i++) {
-            if (nums[i] > 0 && nums[i] < nums.size() && nums[i] != i+1) {
-                int tmp = nums[nums[i]-1];
-                nums[nums[i]-1] = nums[i];
-                if (tmp != nums[i]) {// ��ֹ�����ظ�����
+  public:
+    int firstMissingPositive(vector<int> &nums) {
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] > 0 && nums[i] < nums.size() && nums[i] != i + 1) {
+                int tmp = nums[nums[i] - 1];
+                nums[nums[i] - 1] = nums[i];
+                if (tmp != nums[i]) { // ��ֹ�����ظ�����
                     nums[i] = tmp;
                     i--;
                 }
             }
         }
-        for (int i=0; i<nums.size(); i++) {
-            if (nums[i] != i+1)
-                return i+1;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] != i + 1)
+                return i + 1;
         }
-        return nums.size()+1;
+        return nums.size() + 1;
     }
 };
 
 #endif
-

@@ -3,7 +3,8 @@
 
 /**********************************************************
 Description:
-Given a linked list, remove the n-th node from the end of list and return its head.
+Given a linked list, remove the n-th node from the end of list and return its
+head.
 
 Example:
 Given linked list: 1->2->3->4->5, and n = 2.
@@ -18,7 +19,7 @@ Could you do this in one pass?
 
 #include "../includes.hpp"
 
-//Definition for singly-linked list.
+// Definition for singly-linked list.
 struct ListNode {
     int val;
     ListNode *next;
@@ -26,28 +27,25 @@ struct ListNode {
 };
 
 class Solution {
-public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        if(head == NULL)
+  public:
+    ListNode *removeNthFromEnd(ListNode *head, int n) {
+        if (head == NULL)
             return NULL;
         int len = 0, cnt = 0;
         ListNode *cur = head, *pre = head;
-        while(cur != NULL)
-        {
+        while (cur != NULL) {
             len++;
             cur = cur->next;
         }
-        
 
         pre = cur = head;
-        while(cnt != len - n)
-        {
+        while (cnt != len - n) {
             cnt++;
             pre = cur;
             cur = cur->next;
         }
 
-        if(cur != head)
+        if (cur != head)
             pre->next = cur->next;
         else
             head = cur->next;
@@ -57,4 +55,3 @@ public:
 };
 
 #endif
-

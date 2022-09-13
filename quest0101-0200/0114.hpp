@@ -35,14 +35,14 @@ struct TreeNode {
 };
 
 class Solution {
-public:
-    void flatten(TreeNode* root) {
+  public:
+    void flatten(TreeNode *root) {
         if (root == NULL)
             return;
         stack<TreeNode *> helper;
         helper.push(root);
         TreeNode *pre = NULL, *cur = NULL;
-        while(!helper.empty()) {
+        while (!helper.empty()) {
             cur = helper.top();
             helper.pop();
             if (cur->right != NULL)
@@ -51,7 +51,7 @@ public:
                 helper.push(cur->left);
             cur->left = NULL;
             cur->right = NULL;
-            
+
             if (pre != NULL)
                 pre->right = cur;
             pre = cur;

@@ -3,8 +3,8 @@
 
 /**********************************************************
 Description:
-Write a function to find the longest common prefix string amongst an array of strings.
-If there is no common prefix, return an empty string "".
+Write a function to find the longest common prefix string amongst an array of
+strings. If there is no common prefix, return an empty string "".
 
 Example 1:
 Input: ["flower","flow","flight"]
@@ -19,24 +19,21 @@ Explanation: There is no common prefix among the input strings.
 #include "../includes.hpp"
 
 class Solution {
-public:
-    string longestCommonPrefix(vector<string>& strs) {
+  public:
+    string longestCommonPrefix(vector<string> &strs) {
         string prefix = "";
-        for(int idx=0; strs.size() > 0; idx++)
-        {
-            if(strs[0].length() <= idx)
+        for (int idx = 0; strs.size() > 0; idx++) {
+            if (strs[0].length() <= idx)
                 break;
 
             bool flag = true;
-            for(int i=1; i<strs.size(); i++)
-            {
-                if(strs[i].length() <= idx || strs[i][idx] != strs[0][idx])
-                {
+            for (int i = 1; i < strs.size(); i++) {
+                if (strs[i].length() <= idx || strs[i][idx] != strs[0][idx]) {
                     flag = false;
                     break;
                 }
             }
-            if(flag == false)
+            if (flag == false)
                 break;
             prefix = prefix + strs[0][idx];
         }
@@ -45,4 +42,3 @@ public:
 };
 
 #endif
-

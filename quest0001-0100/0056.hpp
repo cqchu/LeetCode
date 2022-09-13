@@ -14,29 +14,31 @@ Example 2:
 Input: [[1,4],[4,5]]
 Output: [[1,5]]
 Explanation: Intervals [1,4] and [4,5] are considered overlapping.
-NOTE: input types have been changed on April 15, 2019. Please reset to default code definition to get new method signature.
+NOTE: input types have been changed on April 15, 2019. Please reset to default
+code definition to get new method signature.
 *************************************************/
 
 #include "../includes.hpp"
 
 class Solution {
-public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        sort(intervals.begin(), intervals.end(), [](vector<int> a, vector<int> b) -> bool {return a[0] < b[0];});
-        
-        int totalcnt =intervals.size(); // for speed 
-        for (int i=1; i<intervals.size(); i++) {
-            if (intervals[i-1][1] >= intervals[i][0]) {
-                intervals[i][0] = min(intervals[i][0], intervals[i-1][0]);
-                intervals[i][1] = max(intervals[i][1], intervals[i-1][1]);
-                intervals[i-1][0] = 0;
-                intervals[i-1][1] = -1;
-                totalcnt --;
+  public:
+    vector<vector<int>> merge(vector<vector<int>> &intervals) {
+        sort(intervals.begin(), intervals.end(),
+             [](vector<int> a, vector<int> b) -> bool { return a[0] < b[0]; });
+
+        int totalcnt = intervals.size(); // for speed
+        for (int i = 1; i < intervals.size(); i++) {
+            if (intervals[i - 1][1] >= intervals[i][0]) {
+                intervals[i][0] = min(intervals[i][0], intervals[i - 1][0]);
+                intervals[i][1] = max(intervals[i][1], intervals[i - 1][1]);
+                intervals[i - 1][0] = 0;
+                intervals[i - 1][1] = -1;
+                totalcnt--;
             }
         }
         vector<vector<int>> res(totalcnt);
         int pos = 0;
-        for (int i=0; i<intervals.size(); i++) {
+        for (int i = 0; i < intervals.size(); i++) {
             if (intervals[i][0] <= intervals[i][1]) {
                 res[pos++] = intervals[i];
             }
@@ -44,6 +46,5 @@ public:
         return res;
     }
 };
-
 
 #endif

@@ -3,7 +3,8 @@
 
 /****************************************************
 Description:
-Given two words (beginWord and endWord), and a dictionary's word list, find the length of shortest transformation sequence from beginWord to endWord, such that:
+Given two words (beginWord and endWord), and a dictionary's word list, find the
+length of shortest transformation sequence from beginWord to endWord, such that:
 1. Only one letter can be changed at a time.
 2. Each transformed word must exist in the word list.
 
@@ -21,8 +22,8 @@ endWord = "cog",
 wordList = ["hot","dot","dog","lot","log","cog"]
 
 Output: 5
-Explanation: As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
-return its length 5.
+Explanation: As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog"
+-> "cog", return its length 5.
 
 Example 2:
 Input:
@@ -31,20 +32,23 @@ endWord = "cog"
 wordList = ["hot","dot","dog","lot","log"]
 
 Output: 0
-Explanation: The endWord "cog" is not in wordList, therefore no possible transformation.
+Explanation: The endWord "cog" is not in wordList, therefore no possible
+transformation.
 ****************************************************/
 
 #include "../includes.hpp"
 
 class Solution {
-public:
-    /* Construct a graph, the vertexes are the words, two vertexes are connected if they have only a different letter. Then the shortest path between the beginWord and the endWord is the answer
-    
+  public:
+    /* Construct a graph, the vertexes are the words, two vertexes are
+    connected if they have only a different letter. Then the shortest path
+    between the beginWord and the endWord is the answer
+
     Input:
         beginWord = "hit",
         endWord = "cog",
         wordList = ["hot","dot","dog","lot","log","cog"]
-        
+
     Graph:
         hit - hot - lot -  log
                 \   /     /   \
@@ -57,47 +61,48 @@ public:
         if (s.size() != t.size())
             return false;
         int cnt = 0;
-        for (int i=0; i<s.size(); i++)
+        for (int i = 0; i < s.size(); i++)
             if (s[i] != t[i]) {
-                cnt ++;
+                cnt++;
                 if (cnt > 1)
                     return false;
             }
         return true;
     }
-    
-    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
+
+    int ladderLength(string beginWord, string endWord,
+                     vector<string> &wordList) {
         if (beginWord.size() != endWord.size())
             return 0;
-        
+
         wordList.push_back(beginWord);
         vector<bool> visit(wordList.size(), false);
-        visit[visit.size()-1] = true;
+        visit[visit.size() - 1] = true;
         queue<int> q;
-        q.push(wordList.size()-1);
+        q.push(wordList.size() - 1);
         q.push(-1);
         int depth = 2;
-        
-        while(!q.empty()) {
+
+        while (!q.empty()) {
             int idx = q.front();
             q.pop();
-            
+
             if (idx == -1) {
                 if (q.empty())
                     break;
                 q.push(-1);
-                depth ++;
+                depth++;
                 continue;
             }
-            
-            for (int i=0; i<wordList.size(); i++) {
-                if (visit[i] == false && isConnected(wordList[idx], wordList[i])) {
+
+            for (int i = 0; i < wordList.size(); i++) {
+                if (visit[i] == false &&
+                    isConnected(wordList[idx], wordList[i])) {
                     if (wordList[i] == endWord)
                         return depth;
                     q.push(i);
                     visit[i] = true;
                 }
-                    
             }
         }
         return 0;

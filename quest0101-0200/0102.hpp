@@ -3,7 +3,8 @@
 
 /****************************************************
 Description:
-Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
+Given a binary tree, return the level order traversal of its nodes' values. (ie,
+from left to right, level by level).
 
 For example:
 Given binary tree [3,9,20,null,null,15,7],
@@ -31,8 +32,8 @@ struct TreeNode {
 };
 
 class Solution {
-public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
+  public:
+    vector<vector<int>> levelOrder(TreeNode *root) {
         vector<vector<int>> res;
         if (root == NULL)
             return res;
@@ -41,14 +42,14 @@ public:
         bfsQ.push(NULL);
         while (!bfsQ.empty()) {
             vector<int> curLayer;
-            while(bfsQ.front() != NULL) {
+            while (bfsQ.front() != NULL) {
                 TreeNode *tmp = bfsQ.front();
                 bfsQ.pop();
                 curLayer.push_back(tmp->val);
                 if (tmp->left != NULL)
                     bfsQ.push(tmp->left);
                 if (tmp->right != NULL)
-                    bfsQ.push(tmp->right);   
+                    bfsQ.push(tmp->right);
             }
             res.push_back(curLayer);
             bfsQ.pop();

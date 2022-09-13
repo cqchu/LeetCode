@@ -4,11 +4,13 @@
 /****************************************************
 Description:
 Evaluate the value of an arithmetic expression in Reverse Polish Notation.
-Valid operators are +, -, *, /. Each operand may be an integer or another expression.
+Valid operators are +, -, *, /. Each operand may be an integer or another
+expression.
 
 Note:
 Division between two integers should truncate toward zero.
-The given RPN expression is always valid. That means the expression would always evaluate to a result and there won't be any divide by zero operation.
+The given RPN expression is always valid. That means the expression would always
+evaluate to a result and there won't be any divide by zero operation.
 
 Example 1:
 Input: ["2", "1", "+", "3", "*"]
@@ -23,7 +25,7 @@ Explanation: (4 + (13 / 5)) = 6
 Example 3:
 Input: ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
 Output: 22
-Explanation: 
+Explanation:
   ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
 = ((10 * (6 / (12 * -11))) + 17) + 5
 = ((10 * (6 / -132)) + 17) + 5
@@ -36,26 +38,26 @@ Explanation:
 #include "../includes.hpp"
 
 class Solution {
-public:
-    int evalRPN(vector<string>& tokens) {
+  public:
+    int evalRPN(vector<string> &tokens) {
         stack<int> si;
-        for (string token: tokens) {
-            if (token.size() > 1 || (token[0] >= '0' && token[0] <= '9')) { // number
+        for (string token : tokens) {
+            if (token.size() > 1 ||
+                (token[0] >= '0' && token[0] <= '9')) { // number
                 si.push(stoi(token));
-            }
-            else {
+            } else {
                 int rhs = si.top();
                 si.pop();
                 int lhs = si.top();
                 si.pop();
                 int res = 0;
-                if (token[0] == '+') 
+                if (token[0] == '+')
                     res = lhs + rhs;
-                else if (token[0] == '-') 
+                else if (token[0] == '-')
                     res = lhs - rhs;
-                else if (token[0] == '*') 
+                else if (token[0] == '*')
                     res = lhs * rhs;
-                else if (token[0] == '/') 
+                else if (token[0] == '/')
                     res = lhs / rhs;
                 si.push(res);
             }

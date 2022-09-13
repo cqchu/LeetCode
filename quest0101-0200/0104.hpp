@@ -4,7 +4,8 @@
 /****************************************************
 Description:
 Given a binary tree, find its maximum depth.
-The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+The maximum depth is the number of nodes along the longest path from the root
+node down to the farthest leaf node.
 
 Note: A leaf is a node with no children.
 
@@ -28,16 +29,16 @@ struct TreeNode {
 };
 
 class Solution {
-public:
+  public:
     void DFS(TreeNode *root, int curDepth, int &globalMax) {
         if (root == NULL) {
             globalMax = globalMax < curDepth ? curDepth : globalMax;
             return;
         }
-        DFS(root->left, curDepth+1, globalMax);
-        DFS(root->right, curDepth+1, globalMax);
+        DFS(root->left, curDepth + 1, globalMax);
+        DFS(root->right, curDepth + 1, globalMax);
     }
-    int maxDepth(TreeNode* root) {
+    int maxDepth(TreeNode *root) {
         int globalMax = 0;
         DFS(root, 0, globalMax);
         return globalMax;

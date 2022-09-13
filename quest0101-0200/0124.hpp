@@ -4,9 +4,9 @@
 /****************************************************
 Description:
 Given a non-empty binary tree, find the maximum path sum.
-For this problem, a path is defined as any sequence of nodes from some starting node
-to any node in the tree along the parent-child connections. The path must contain at
-least one node and does not need to go through the root.
+For this problem, a path is defined as any sequence of nodes from some starting
+node to any node in the tree along the parent-child connections. The path must
+contain at least one node and does not need to go through the root.
 
 Example 1:
 Input: [1,2,3]
@@ -35,20 +35,21 @@ struct TreeNode {
 };
 
 class Solution {
-public:
+  public:
     long maxSubTree(TreeNode *root, long &curMax) {
         if (root == NULL)
             return -INT_MAX;
         long leftMax = maxSubTree(root->left, curMax);
         long rightMax = maxSubTree(root->right, curMax);
         long tmpMax = max(static_cast<long>(root->val), max(leftMax, rightMax));
-        tmpMax = max(tmpMax, max(leftMax+root->val, rightMax+root->val));
+        tmpMax = max(tmpMax, max(leftMax + root->val, rightMax + root->val));
         tmpMax = max(tmpMax, root->val + leftMax + rightMax);
-        
+
         curMax = max(curMax, tmpMax);
-        return max(static_cast<long>(root->val), max(root->val + leftMax, root->val+rightMax));
+        return max(static_cast<long>(root->val),
+                   max(root->val + leftMax, root->val + rightMax));
     }
-    int maxPathSum(TreeNode* root) {
+    int maxPathSum(TreeNode *root) {
         long maxPath = -INT_MAX;
         maxSubTree(root, maxPath);
         return static_cast<int>(maxPath);

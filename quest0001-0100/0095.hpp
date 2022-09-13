@@ -3,7 +3,8 @@
 
 /****************************************************
 Description:
-Given an integer n, generate all structurally unique BST's (binary search trees) that store values 1 ... n.
+Given an integer n, generate all structurally unique BST's (binary search trees)
+that store values 1 ... n.
 
 Example:
 Input: 3
@@ -35,12 +36,11 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-
 /**
  * for BST(Binary Search Tree) with N node, it can be composed as below:
  * case 1:               case 2:              case 3:
  *            N             Tree [1, N)           Tree [1, j)
- *           /                    \                   \ 
+ *           /                    \                   \
  *          /                      \                   \
  *    Tree [1, N)                   N                   N
  *                                                     /
@@ -51,48 +51,46 @@ struct TreeNode {
  */
 
 class Solution {
-public:
+  public:
     TreeNode *copyTree(TreeNode *root) {
         if (root == NULL)
             return NULL;
-        
+
         TreeNode *copyRoot = new TreeNode(root->val);
         copyRoot->left = copyTree(root->left);
         copyRoot->right = copyTree(root->right);
         return copyRoot;
     }
-    
-    // base used for converting a tree [1, n] to a tree [base+1, base+n] 
-    vector<TreeNode*> recurse(int n, int base) {
-        vector<TreeNode*> res;
+
+    // base used for converting a tree [1, n] to a tree [base+1, base+n]
+    vector<TreeNode *> recurse(int n, int base) {
+        vector<TreeNode *> res;
         if (n == 0)
             return res;
         if (n == 1) {
-            res.push_back(new TreeNode(1+base));
+            res.push_back(new TreeNode(1 + base));
             return res;
         }
-        for (int j=0; j<n; j++) {
-         
-            vector<TreeNode*> topRes = recurse(j, base);
-            vector<TreeNode*> bottomRes = recurse(n-j-1, j+base);
-            
+        for (int j = 0; j < n; j++) {
+            vector<TreeNode *> topRes = recurse(j, base);
+            vector<TreeNode *> bottomRes = recurse(n - j - 1, j + base);
+
             if (topRes.empty())
                 topRes.push_back(NULL);
             if (bottomRes.empty())
                 bottomRes.push_back(NULL);
-                        
-            for (auto top: topRes) {
-                for (auto bottom: bottomRes) {
-                    TreeNode* curNode = new TreeNode(n+base);
+
+            for (auto top : topRes) {
+                for (auto bottom : bottomRes) {
+                    TreeNode *curNode = new TreeNode(n + base);
                     curNode->left = bottom;
                     if (top != NULL) {
-                        TreeNode *tmpTop = copyTree(top); 
+                        TreeNode *tmpTop = copyTree(top);
                         res.push_back(tmpTop);
                         while (tmpTop->right != NULL)
                             tmpTop = tmpTop->right;
                         tmpTop->right = curNode;
-                    }
-                    else {
+                    } else {
                         res.push_back(curNode);
                     }
                 }
@@ -100,9 +98,7 @@ public:
         }
         return res;
     }
-    vector<TreeNode*> generateTrees(int n) {
-        return recurse(n,0);
-    }
+    vector<TreeNode *> generateTrees(int n) { return recurse(n, 0); }
 };
 
 #endif

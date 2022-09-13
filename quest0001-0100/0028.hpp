@@ -4,7 +4,8 @@
 /**********************************************************
 Description:
 Implement strStr().
-Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+Return the index of the first occurrence of needle in haystack, or -1 if needle
+is not part of haystack.
 
 Example 1:
 Input: haystack = "hello", needle = "ll"
@@ -18,7 +19,7 @@ Output: -1
 #include "../includes.hpp"
 
 class Solution {
-public:
+  public:
     int strStr(string haystack, string needle) {
         if (needle.length() == 0)
             return 0;
@@ -27,10 +28,8 @@ public:
 
         int idx = -1;
 
-        for(int i=0; i<haystack.length()-needle.length()+1; i++)
-        {
-            if(haystack.substr(i, needle.length()).compare(needle) == 0)
-            {
+        for (int i = 0; i < haystack.length() - needle.length() + 1; i++) {
+            if (haystack.substr(i, needle.length()).compare(needle) == 0) {
                 idx = i;
                 break;
             }
@@ -40,4 +39,3 @@ public:
 };
 
 #endif
-

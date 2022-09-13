@@ -2,7 +2,8 @@
 #define __0023_H
 
 /**********************************************************
-Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Merge k sorted linked lists and return it as one sorted list. Analyze and
+describe its complexity.
 
 Example:
 Input:
@@ -24,8 +25,8 @@ struct ListNode {
 };
 
 class Solution {
-public:
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
+  public:
+    ListNode *mergeKLists(vector<ListNode *> &lists) {
         ListNode *head = NULL;
         ListNode *cur = NULL;
         ListNode *minPtr = NULL;
@@ -33,19 +34,14 @@ public:
         do {
             minPtr = NULL;
             int idx = -1;
-            for(int i=0; i<lists.size(); i++)   // get min
+            for (int i = 0; i < lists.size(); i++) // get min
             {
-                if(lists[i] != NULL)
-                {
-                    if(minPtr == NULL)
-                    {
+                if (lists[i] != NULL) {
+                    if (minPtr == NULL) {
                         minPtr = lists[i];
                         idx = i;
-                    }
-                    else
-                    {
-                        if(minPtr->val > lists[i]->val)
-                        {
+                    } else {
+                        if (minPtr->val > lists[i]->val) {
                             minPtr = lists[i];
                             idx = i;
                         }
@@ -53,23 +49,20 @@ public:
                 }
             }
 
-            if(minPtr != NULL)
-            {
-                if(head == NULL)
+            if (minPtr != NULL) {
+                if (head == NULL)
                     head = cur = minPtr;
-                else
-                {
+                else {
                     cur->next = minPtr;
                     cur = cur->next;
                 }
-                
+
                 lists[idx] = lists[idx]->next;
             }
-        } while(minPtr != NULL);
-        
+        } while (minPtr != NULL);
+
         return head;
     }
 };
 
 #endif
-

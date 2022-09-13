@@ -3,7 +3,8 @@
 
 /****************************************************
 Description:
-Given n, how many structurally unique BST's (binary search trees) that store values 1 ... n?
+Given n, how many structurally unique BST's (binary search trees) that store
+values 1 ... n?
 
 Example:
 
@@ -23,15 +24,15 @@ Given n = 3, there are a total of 5 unique BST's:
 #include "../includes.hpp"
 
 class Solution {
-public:
+  public:
     int numTrees(int n) {
-        vector<int> dp(n+1, 0);
+        vector<int> dp(n + 1, 0);
         dp[1] = 1;
-        for (int i=2; i<=n; i++) {
-            for (int j=0; j<i; j++) {
+        for (int i = 2; i <= n; i++) {
+            for (int j = 0; j < i; j++) {
                 int m = dp[j] == 0 ? 1 : dp[j];
-                int n = dp[i-j-1] == 0 ? 1 : dp[i-j-1];
-                
+                int n = dp[i - j - 1] == 0 ? 1 : dp[i - j - 1];
+
                 dp[i] += m * n;
             }
         }

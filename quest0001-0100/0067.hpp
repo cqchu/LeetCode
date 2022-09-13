@@ -18,23 +18,23 @@ Output: "10101"
 #include "../includes.hpp"
 
 class Solution {
-public:
+  public:
     string addBinary(string a, string b) {
         int carry = 0, bitRes = 0, iA = 0, iB = 0;
         string res(max(a.size(), b.size()), '0');
-        for (int i=1; i<=max(a.size(), b.size()); i++) {
+        for (int i = 1; i <= max(a.size(), b.size()); i++) {
             iA = iB = 0;
             if (a.size() >= i) {
-                iA = a[a.size()-i] - '0';
+                iA = a[a.size() - i] - '0';
             }
             if (b.size() >= i) {
-                iB = b[b.size()-i] - '0';
+                iB = b[b.size() - i] - '0';
             }
             bitRes = (iA + iB + carry) % 2;
             carry = (iA + iB + carry) / 2;
-            res[res.size()-i] = bitRes + '0';
+            res[res.size() - i] = bitRes + '0';
         }
-        
+
         if (carry == 1) {
             char chCarry = carry + '0';
             res = chCarry + res;

@@ -3,7 +3,8 @@
 
 /****************************************************
 Description:
-Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
+Given a binary tree and a sum, find all root-to-leaf paths where each path's sum
+equals the given sum.
 
 Note: A leaf is a node with no children.
 
@@ -33,23 +34,23 @@ struct TreeNode {
 };
 
 class Solution {
-public:
-    void DFS(TreeNode* root, int pathSum, int givenVal, vector<int> &visitStack, vector<vector<int>> &res) {
+  public:
+    void DFS(TreeNode *root, int pathSum, int givenVal, vector<int> &visitStack,
+             vector<vector<int>> &res) {
         if (root == NULL)
             return;
         visitStack.push_back(root->val);
         if (root->left == NULL && root->right == NULL) {
-            if (root->val + pathSum == givenVal) 
+            if (root->val + pathSum == givenVal)
                 res.push_back(visitStack);
         }
         DFS(root->left, pathSum + root->val, givenVal, visitStack, res);
         DFS(root->right, pathSum + root->val, givenVal, visitStack, res);
         visitStack.pop_back();
         return;
-        
     }
-    
-    vector<vector<int>> pathSum(TreeNode* root, int sum) {
+
+    vector<vector<int>> pathSum(TreeNode *root, int sum) {
         vector<int> visitStack;
         vector<vector<int>> res;
         DFS(root, 0, sum, visitStack, res);

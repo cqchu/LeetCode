@@ -51,8 +51,9 @@ struct TreeNode {
 };
 
 class Solution {
-public:
-    void inorder(TreeNode* root, vector<int> &inorderSeq, unordered_map<int, TreeNode*> &val2ptr) {
+  public:
+    void inorder(TreeNode *root, vector<int> &inorderSeq,
+                 unordered_map<int, TreeNode *> &val2ptr) {
         if (root == NULL)
             return;
         inorder(root->left, inorderSeq, val2ptr);
@@ -60,25 +61,25 @@ public:
         val2ptr.insert({root->val, root});
         inorder(root->right, inorderSeq, val2ptr);
     }
-    
-    void recoverTree(TreeNode* root) {
+
+    void recoverTree(TreeNode *root) {
         vector<int> inorderSeq;
-        unordered_map<int, TreeNode*> val2ptr;
+        unordered_map<int, TreeNode *> val2ptr;
         inorder(root, inorderSeq, val2ptr);
         int leftVal, rightVal;
-        for (int i=0; i<inorderSeq.size(); i++) {
-            if (inorderSeq[i] > inorderSeq[i+1]) {
+        for (int i = 0; i < inorderSeq.size(); i++) {
+            if (inorderSeq[i] > inorderSeq[i + 1]) {
                 leftVal = inorderSeq[i];
                 break;
             }
         }
-        for (int i=inorderSeq.size()-1; i>=0; i--) {
-            if (inorderSeq[i] < inorderSeq[i-1]) {
+        for (int i = inorderSeq.size() - 1; i >= 0; i--) {
+            if (inorderSeq[i] < inorderSeq[i - 1]) {
                 rightVal = inorderSeq[i];
                 break;
             }
         }
-        
+
         swap(val2ptr[leftVal]->val, val2ptr[rightVal]->val);
     }
 };

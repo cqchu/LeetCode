@@ -6,7 +6,8 @@ Description:
 Given a singly linked list L: L0→L1→…→Ln-1→Ln,
 reorder it to: L0→Ln→L1→Ln-1→L2→Ln-2→…
 
-You may not modify the values in the list's nodes, only nodes itself may be changed.
+You may not modify the values in the list's nodes, only nodes itself may be
+changed.
 
 Example 1:
 Given 1->2->3->4, reorder it to 1->4->2->3.
@@ -27,22 +28,23 @@ struct ListNode {
 };
 
 class Solution {
-public:
-    void reorderList(ListNode* head) {
+  public:
+    void reorderList(ListNode *head) {
         vector<ListNode *> stk;
-        for (ListNode *curNode=head; curNode != nullptr; curNode=curNode->next)
+        for (ListNode *curNode = head; curNode != nullptr;
+             curNode = curNode->next)
             stk.push_back(curNode);
 
         int totalNum = stk.size();
         if (totalNum <= 2)
-            return ;
+            return;
 
-        for (int i=0; i<stk.size()/2; i++) {
-            stk[i]->next = stk[totalNum-1-i];
-            stk[totalNum-1-i]->next = stk[i+1];
+        for (int i = 0; i < stk.size() / 2; i++) {
+            stk[i]->next = stk[totalNum - 1 - i];
+            stk[totalNum - 1 - i]->next = stk[i + 1];
         }
-        stk[stk.size()/2]->next = nullptr;
-        return ;
+        stk[stk.size() / 2]->next = nullptr;
+        return;
     }
 };
 

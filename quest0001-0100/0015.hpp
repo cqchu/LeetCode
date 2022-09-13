@@ -3,9 +3,9 @@
 
 /**********************************************************
 Description:
-Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
-Note:
-The solution set must not contain duplicate triplets.
+Given an array nums of n integers, are there elements a, b, c in nums such that
+a + b + c = 0? Find all unique triplets in the array which gives the sum of
+zero. Note: The solution set must not contain duplicate triplets.
 
 Example:
 Given array nums = [-1, 0, 1, 2, -1, -4],
@@ -19,7 +19,7 @@ A solution set is:
 #include "../includes.hpp"
 
 class Solution {
-public:
+  public:
     /*
     int cmp(vector<int> a, vector<int> b)
     {
@@ -38,7 +38,7 @@ public:
             }
         }
         return -1;
-    } 
+    }
 
     vector<vector<int> > threeSum(vector<int>& nums) {
         vector<vector<int> > res;
@@ -74,47 +74,42 @@ public:
     */
 
     // double pointor method
-    vector<vector<int> > threeSum(vector<int>& nums) {
-        vector<vector<int> > res;
-        if(nums.size() == 0)
+    vector<vector<int>> threeSum(vector<int> &nums) {
+        vector<vector<int>> res;
+        if (nums.size() == 0)
             return res;
         sort(nums.begin(), nums.end());
         int cur, startPtr, endPtr;
 
-        for(cur=0; nums[cur]<=0 && cur<nums.size(); cur++)
-        {
-            if(cur>0 && nums[cur-1] == nums[cur])
+        for (cur = 0; nums[cur] <= 0 && cur < nums.size(); cur++) {
+            if (cur > 0 && nums[cur - 1] == nums[cur])
                 continue;
 
             startPtr = cur + 1;
             endPtr = nums.size() - 1;
-            while(startPtr < endPtr)
-            {
-                if(nums[startPtr]+nums[endPtr] == -nums[cur])
-                {
+            while (startPtr < endPtr) {
+                if (nums[startPtr] + nums[endPtr] == -nums[cur]) {
                     vector<int> tmp;
-                    tmp.push_back(nums[cur]); tmp.push_back(nums[startPtr]); tmp.push_back(nums[endPtr]);
+                    tmp.push_back(nums[cur]);
+                    tmp.push_back(nums[startPtr]);
+                    tmp.push_back(nums[endPtr]);
                     res.push_back(tmp);
                     do {
                         startPtr++;
-                    } while(nums[startPtr] == nums[startPtr-1]);
+                    } while (nums[startPtr] == nums[startPtr - 1]);
 
                     do {
                         endPtr--;
-                    } while(nums[endPtr] == nums[endPtr+1]);
-                        
-                }
-                else if(nums[startPtr]+nums[endPtr] > -nums[cur])
-                {
+                    } while (nums[endPtr] == nums[endPtr + 1]);
+
+                } else if (nums[startPtr] + nums[endPtr] > -nums[cur]) {
                     do {
                         endPtr--;
-                    } while(nums[endPtr] == nums[endPtr+1]);
-                }
-                else
-                {
+                    } while (nums[endPtr] == nums[endPtr + 1]);
+                } else {
                     do {
                         startPtr++;
-                    } while(nums[startPtr] == nums[startPtr-1]);
+                    } while (nums[startPtr] == nums[startPtr - 1]);
                 }
             }
         }
@@ -123,4 +118,3 @@ public:
 };
 
 #endif
-

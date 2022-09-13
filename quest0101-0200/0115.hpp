@@ -3,9 +3,12 @@
 
 /****************************************************
 Description:
-Given a string S and a string T, count the number of distinct subsequences of S which equals T.
-A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, "ACE" is a subsequence of "ABCDE" while "AEC" is not).
-It's guaranteed the answer fits on a 32-bit signed integer.
+Given a string S and a string T, count the number of distinct subsequences of S
+which equals T. A subsequence of a string is a new string which is formed from
+the original string by deleting some (can be none) of the characters without
+disturbing the relative positions of the remaining characters. (ie, "ACE" is a
+subsequence of "ABCDE" while "AEC" is not). It's guaranteed the answer fits on a
+32-bit signed integer.
 
 Example 1:
 Input: S = "rabbbit", T = "rabbit"
@@ -45,22 +48,23 @@ babgbag
 #include "../includes.hpp"
 
 class Solution {
-public:
+  public:
     int numDistinct(string s, string t) {
-        vector<vector<unsigned int>> dp(s.size()+1, vector<unsigned int>(t.size()+1, 0));
-        for (int i=0; i<s.size(); i++) 
+        vector<vector<unsigned int>> dp(s.size() + 1,
+                                        vector<unsigned int>(t.size() + 1, 0));
+        for (int i = 0; i < s.size(); i++)
             dp[i][0] = 1;
-        for (int i=0; i<s.size(); i++) {
-            for (int j=0; j<t.size(); j++) {
-                if (j>i)
-                    dp[i+1][j+1] = 0;
+        for (int i = 0; i < s.size(); i++) {
+            for (int j = 0; j < t.size(); j++) {
+                if (j > i)
+                    dp[i + 1][j + 1] = 0;
                 else if (s[i] == t[j])
-                    dp[i+1][j+1] = dp[i][j] + dp[i][j+1];
+                    dp[i + 1][j + 1] = dp[i][j] + dp[i][j + 1];
                 else
-                    dp[i+1][j+1] = dp[i][j+1];
+                    dp[i + 1][j + 1] = dp[i][j + 1];
             }
         }
-        
+
         // for (int i=0; i<s.size(); i++) {
         //     for (int j=0; j<t.size(); j++) {
         //         cout << dp[i+1][j+1] << " ";

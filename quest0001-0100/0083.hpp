@@ -2,7 +2,8 @@
 #define __0083_H
 
 /*******************************************
-Given a sorted linked list, delete all duplicates such that each element appear only once.
+Given a sorted linked list, delete all duplicates such that each element appear
+only once.
 
 Example 1:
 Input: 1->1->2
@@ -22,22 +23,21 @@ struct ListNode {
 };
 
 class Solution {
-public:
-    ListNode* deleteDuplicates(ListNode* head) {
+  public:
+    ListNode *deleteDuplicates(ListNode *head) {
         if (head == NULL)
             return head;
-        
-        ListNode *preNode=NULL, *curNode=head;
-        while(curNode->next != NULL) {
+
+        ListNode *preNode = NULL, *curNode = head;
+        while (curNode->next != NULL) {
             ListNode *nextNode = curNode->next;
             if (curNode->val == curNode->next->val) {
                 if (preNode != NULL)
                     preNode->next = curNode->next;
-                else 
+                else
                     head = curNode->next;
                 delete curNode;
-            }
-            else {
+            } else {
                 preNode = curNode;
             }
             curNode = nextNode;

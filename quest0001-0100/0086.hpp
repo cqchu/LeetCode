@@ -3,8 +3,9 @@
 
 /**********************************************
 Description:
-Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
-You should preserve the original relative order of the nodes in each of the two partitions.
+Given a linked list and a value x, partition it such that all nodes less than x
+come before nodes greater than or equal to x. You should preserve the original
+relative order of the nodes in each of the two partitions.
 
 Example:
 Input: head = 1->4->3->2->5->2, x = 3
@@ -20,11 +21,11 @@ struct ListNode {
 };
 
 class Solution {
-public:
-    ListNode* partition(ListNode* head, int x) {
+  public:
+    ListNode *partition(ListNode *head, int x) {
         ListNode *insertNode = NULL, *curNode = head, *preNode = NULL;
         bool fakeHead = false;
-        while(curNode != NULL) {
+        while (curNode != NULL) {
             if (insertNode == NULL) {
                 if (curNode->val >= x) {
                     if (preNode != NULL)
@@ -36,14 +37,12 @@ public:
                         fakeHead = true;
                     }
                 }
-            }
-            else {
+            } else {
                 if (curNode->val < x) {
                     preNode->next = curNode->next;
                     curNode->next = insertNode->next;
                     insertNode->next = curNode;
                     insertNode = curNode;
-                    
                 }
             }
             preNode = curNode;
@@ -54,7 +53,7 @@ public:
             head = head->next;
             delete tmp;
         }
-            
+
         return head;
     }
 };

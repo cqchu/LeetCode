@@ -3,10 +3,11 @@
 
 /****************************************************
 Description:
-Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal's triangle.
-Note that the row index starts from 0.
+Given a non-negative index k where k ≤ 33, return the kth index row of the
+Pascal's triangle. Note that the row index starts from 0.
 
-In Pascal's triangle, each number is the sum of the two numbers directly above it.
+In Pascal's triangle, each number is the sum of the two numbers directly above
+it.
 
 Example:
 Input: 3
@@ -19,24 +20,24 @@ Could you optimize your algorithm to use only O(k) extra space?
 #include "../includes.hpp"
 
 class Solution {
-public:
+  public:
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>> res;
-        for (int i=0; i<numRows; i++) {
+        for (int i = 0; i < numRows; i++) {
             vector<int> curRow;
-            for (int j=0; j<=i; j++) {
-                if (j==0 || j==i)
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i)
                     curRow.push_back(1);
-                else 
-                    curRow.push_back(res[i-1][j-1] + res[i-1][j]);
+                else
+                    curRow.push_back(res[i - 1][j - 1] + res[i - 1][j]);
             }
             res.push_back(curRow);
         }
         return res;
     }
-    
+
     vector<int> getRow(int rowIndex) {
-        return generate(rowIndex+1)[rowIndex];
+        return generate(rowIndex + 1)[rowIndex];
     }
 };
 

@@ -24,12 +24,13 @@ struct TreeNode {
     TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right)
+        : val(x), left(left), right(right) {}
 };
 
 class Solution {
-public:
-    vector<int> postorderTraversal(TreeNode* root) {
+  public:
+    vector<int> postorderTraversal(TreeNode *root) {
         vector<int> res;
         stack<TreeNode *> nodeStack;
         if (root == nullptr)
@@ -37,13 +38,13 @@ public:
         nodeStack.push(root);
         TreeNode *pre = root;
         while (!nodeStack.empty()) {
-            TreeNode *cur = nodeStack.top();            
-            if (cur->right == pre || cur->left == pre || (cur->right == nullptr && cur->left == nullptr)) {
+            TreeNode *cur = nodeStack.top();
+            if (cur->right == pre || cur->left == pre ||
+                (cur->right == nullptr && cur->left == nullptr)) {
                 nodeStack.pop();
                 pre = cur;
                 res.push_back(cur->val);
-            }
-            else {
+            } else {
                 if (cur->right != nullptr)
                     nodeStack.push(cur->right);
                 if (cur->left != nullptr)

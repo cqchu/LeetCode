@@ -3,7 +3,9 @@
 
 /****************************************************
 Description:
-Given a binary tree, return the zigzag level order traversal of its nodes' values. (ie, from left to right, then right to left for the next level and alternate between).
+Given a binary tree, return the zigzag level order traversal of its nodes'
+values. (ie, from left to right, then right to left for the next level and
+alternate between).
 
 For example:
 Given binary tree [3,9,20,null,null,15,7],
@@ -31,8 +33,8 @@ struct TreeNode {
 };
 
 class Solution {
-public:
-    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+  public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode *root) {
         vector<vector<int>> res;
         if (root == NULL)
             return res;
@@ -42,31 +44,31 @@ public:
         bool l2r = true;
         while (!bfsQ.empty()) {
             vector<int> curLayer;
-            while(bfsQ.front() != NULL) {
+            while (bfsQ.front() != NULL) {
                 TreeNode *tmp = bfsQ.front();
                 bfsQ.pop_front();
                 curLayer.push_back(tmp->val);
                 if (tmp->left != NULL)
                     bfsQ.push_back(tmp->left);
                 if (tmp->right != NULL)
-                    bfsQ.push_back(tmp->right);   
+                    bfsQ.push_back(tmp->right);
             }
             if (!curLayer.empty())
                 res.push_back(curLayer);
             bfsQ.pop_front();
             if (!bfsQ.empty())
                 bfsQ.push_front(NULL);
-            
+
             curLayer.clear();
-            
-            while(bfsQ.back() != NULL) {
+
+            while (bfsQ.back() != NULL) {
                 TreeNode *tmp = bfsQ.back();
                 bfsQ.pop_back();
                 curLayer.push_back(tmp->val);
                 if (tmp->right != NULL)
                     bfsQ.push_front(tmp->right);
                 if (tmp->left != NULL)
-                    bfsQ.push_front(tmp->left);   
+                    bfsQ.push_front(tmp->left);
             }
             if (!curLayer.empty())
                 res.push_back(curLayer);

@@ -28,24 +28,26 @@ struct TreeNode {
 };
 
 class Solution {
-public:
-    TreeNode* buildSubTree(vector<int>& preorder, vector<int>& inorder, int preStart, int inStart, int len) {
-        if (len == 0) 
+  public:
+    TreeNode *buildSubTree(vector<int> &preorder, vector<int> &inorder,
+                           int preStart, int inStart, int len) {
+        if (len == 0)
             return NULL;
-        TreeNode* root = new TreeNode(preorder[preStart]);
+        TreeNode *root = new TreeNode(preorder[preStart]);
         int leftLen = 0;
-        for (leftLen=0; leftLen<len; leftLen++) {
+        for (leftLen = 0; leftLen < len; leftLen++) {
             if (inorder[leftLen + inStart] == preorder[preStart])
                 break;
         }
-        root->left = buildSubTree(preorder, inorder, preStart+1, inStart, leftLen);
-        
-        root->right = buildSubTree(preorder, inorder, preStart+leftLen+1, inStart+leftLen+1, len-leftLen-1);
+        root->left =
+            buildSubTree(preorder, inorder, preStart + 1, inStart, leftLen);
+
+        root->right = buildSubTree(preorder, inorder, preStart + leftLen + 1,
+                                   inStart + leftLen + 1, len - leftLen - 1);
         return root;
-                
     }
-    
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+
+    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
         return buildSubTree(preorder, inorder, 0, 0, preorder.size());
     }
 };

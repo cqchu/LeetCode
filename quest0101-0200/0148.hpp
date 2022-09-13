@@ -25,17 +25,19 @@ struct ListNode {
 };
 
 class Solution {
-public:
+  public:
     void print(ListNode *head) {
-        while(head != nullptr) {
+        while (head != nullptr) {
             cout << head->val << " ";
             head = head->next;
         }
         cout << endl;
     }
     ListNode *merge(ListNode *lhs, ListNode *rhs) {
-        if (lhs == nullptr) return rhs;
-        if (rhs == nullptr) return lhs;
+        if (lhs == nullptr)
+            return rhs;
+        if (rhs == nullptr)
+            return lhs;
         ListNode *head = lhs->val < rhs->val ? lhs : rhs;
         ListNode *lhsPtr = lhs == head ? lhs->next : lhs;
         ListNode *rhsPtr = rhs == head ? rhs->next : rhs;
@@ -45,18 +47,15 @@ public:
             if (lhsPtr == nullptr) {
                 cur->next = rhsPtr;
                 break;
-            }
-            else if (rhsPtr == nullptr) {
+            } else if (rhsPtr == nullptr) {
                 cur->next = lhsPtr;
                 break;
-            }
-            else if (lhsPtr->val < rhsPtr->val) {
+            } else if (lhsPtr->val < rhsPtr->val) {
                 cur->next = lhsPtr;
                 lhsPtr = lhsPtr->next;
                 cur = cur->next;
                 cur->next = nullptr;
-            }
-            else {
+            } else {
                 cur->next = rhsPtr;
                 rhsPtr = rhsPtr->next;
                 cur = cur->next;
@@ -65,35 +64,34 @@ public:
         }
         return head;
     }
-    
-    pair<ListNode*, ListNode*> divide(ListNode *head) {
+
+    pair<ListNode *, ListNode *> divide(ListNode *head) {
         ListNode *lhs, *rhs;
         if (head == nullptr || head->next == nullptr) {
             lhs = head;
             rhs = nullptr;
             return make_pair(lhs, rhs);
         }
-        ListNode *fast=head, *slow=head, *slowPre=nullptr;
+        ListNode *fast = head, *slow = head, *slowPre = nullptr;
         while (fast != nullptr && fast->next != nullptr) {
             fast = fast->next->next;
             slowPre = slow;
             slow = slow->next;
-            
         }
         slowPre->next = nullptr;
         lhs = head;
         rhs = slow;
         return make_pair(lhs, rhs);
     }
-    
-    ListNode* divideAndConquer(ListNode *head) {
+
+    ListNode *divideAndConquer(ListNode *head) {
         if (head == nullptr || head->next == nullptr)
             return head;
         ListNode *lhs, *rhs;
         // print(head);
         auto divideRes = divide(head);
         divideRes.first = divideAndConquer(divideRes.first);
-        divideRes.second = divideAndConquer(divideRes.second);        
+        divideRes.second = divideAndConquer(divideRes.second);
         head = merge(divideRes.first, divideRes.second);
         // cout << "---------" << endl;
         // print(divideRes.first);
@@ -102,10 +100,8 @@ public:
         // cout << "---------" << endl;
         return head;
     }
-    
-    ListNode* sortList(ListNode* head) {
-        return divideAndConquer(head);
-    }
+
+    ListNode *sortList(ListNode *head) { return divideAndConquer(head); }
 };
 
 #endif

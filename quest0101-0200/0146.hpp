@@ -3,10 +3,13 @@
 
 /****************************************************
 Description:
-Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
+Design and implement a data structure for Least Recently Used (LRU) cache. It
+should support the following operations: get and put.
 
-get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
-put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
+get(key) - Get the value (will always be positive) of the key if the key exists
+in the cache, otherwise return -1. put(key, value) - Set or insert the value if
+the key is not already present. When the cache reached its capacity, it should
+invalidate the least recently used item before inserting a new item.
 
 The cache is initialized with a positive capacity.
 
@@ -14,7 +17,7 @@ Follow up:
 Could you do both operations in O(1) time complexity?
 
 Example:
-LRUCache cache = new LRUCache(2); 
+LRUCache cache = new LRUCache(2);
 cache.put(1, 1);
 cache.put(2, 2);
 cache.get(1);       // returns 1
@@ -29,7 +32,7 @@ cache.get(4);       // returns 4
 #include "../includes.hpp"
 
 class LRUCache {
-public:
+  public:
     unordered_map<int, int> cache_;
     unordered_map<int, int> visitCnt_;
     queue<int> visit_;
@@ -45,9 +48,8 @@ public:
         auto it = visitCnt_.find(key);
         if (it == visitCnt_.end()) {
             visitCnt_[key] = 1;
-        }
-        else {
-            visitCnt_[key] += 1; 
+        } else {
+            visitCnt_[key] += 1;
         }
         visit_.push(key);
     }
@@ -61,39 +63,36 @@ public:
                 auto it = visitCnt_.find(key);
                 visitCnt_.erase(it);
                 break;
-            }
-            else {
+            } else {
                 visitCnt_[key] -= 1;
             }
         }
         return key;
     }
-    
+
     int get(int key) {
         auto it = cache_.find(key);
         if (it != cache_.end()) {
             // Update the least recent viewed
             updateLeastRecentKey(key);
             return it->second;
-        }
-        else {
+        } else {
             return -1;
         }
     }
-    
+
     void put(int key, int value) {
         if (cache_.find(key) != cache_.end()) {
             cache_[key] = value;
             updateLeastRecentKey(key);
-            return ;
+            return;
         }
-        if (curUsage_ < capacity_ ) {
+        if (curUsage_ < capacity_) {
             cache_[key] = value;
             updateLeastRecentKey(key);
             ++curUsage_;
-            return ;
-        }
-        else {
+            return;
+        } else {
             // find the least recently viewed key
             int lrKey = findLeastRecentKey();
             auto it = cache_.find(lrKey);
@@ -105,20 +104,19 @@ public:
 
     void printMap(unordered_map<int, int> uom) {
         cout << "--------- suom ---------" << endl;
-        for (auto c: uom)
+        for (auto c : uom)
             cout << c.first << " " << c.second << endl;
         cout << "--------- euom ---------" << endl;
     }
 
     void printQueue(queue<int> q) {
         cout << "--------- sque ---------" << endl;
-        while(!q.empty()) {
+        while (!q.empty()) {
             cout << q.front() << " ";
             q.pop();
         }
         cout << "\n--------- eque ---------" << endl;
     }
-    
 };
 
 /**
