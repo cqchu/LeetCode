@@ -18,7 +18,7 @@ Note:
     The given board size is always 9x9.
 ************************************************/
 
-#include "includes.hpp"
+#include "../includes.hpp"
 
 class Solution {
 public:

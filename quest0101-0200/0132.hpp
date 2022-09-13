@@ -12,7 +12,7 @@ Output: 1
 Explanation: The palindrome partitioning ["aa","b"] could be produced using 1 cut.
 ****************************************************/
 
-#include "includes.hpp"
+#include "../includes.hpp"
 
 // The version 1 is to solve the problem by recurse and enumeration, but the time complexity is too high.
 // The reason why our program is slow is that some substrings have been recursed too many times. 

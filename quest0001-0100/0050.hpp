@@ -23,7 +23,7 @@ Note:
     n is a 32-bit signed integer, within the range [?231, 231 ? 1]
 *************************************************/
 
-#include "includes.hpp"
+#include "../includes.hpp"
 
 // �ݹ���ֵ���
 // �������ʱ�仹����, Ȼ����Ϊ�ұߵ�����ߣ�����ֱ�Ӹ��ý��

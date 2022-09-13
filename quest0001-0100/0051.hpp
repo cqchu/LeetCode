@@ -23,7 +23,7 @@ Output: [
 Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above.
 *************************************************/
 
-#include "includes.hpp"
+#include "../includes.hpp"
 
 class Solution {
 public:

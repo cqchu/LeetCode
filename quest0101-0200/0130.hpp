@@ -25,7 +25,7 @@ an 'O' on the border will be flipped to 'X'. Two cells are connected if they are
 cells connected horizontally or vertically.
 ****************************************************/
 
-#include "includes.hpp"
+#include "../includes.hpp"
 
 class Solution {
 public:

@@ -25,7 +25,7 @@ Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
 Output: false
 ****************************************************/
 
-#include "includes.hpp"
+#include "../includes.hpp"
 
 class Solution {
 public:

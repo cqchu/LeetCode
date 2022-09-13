@@ -35,7 +35,7 @@ Input: "/a//b////c/d//././/.."
 Output: "/a/b/c"
 ****************************************************/
 
-#include "includes.hpp"
+#include "../includes.hpp"
 
 class Solution {
 public:
