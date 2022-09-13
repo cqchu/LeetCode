@@ -27,9 +27,10 @@
 * 0123, "Best Time to Buy and Sell Stock III": 好好理解一下什么叫动归就是带缓存的递归</br>
 * 0126, "Word Ladder II": 把这个问题抽象成无向无权图中最短路径问题, 然后用双向BFS降低搜索空间的复杂度来解. 同时这里判断两个节点连接的方式是用unordered\_set来做</br>
 * 0128, "Longest Consecutive Sequence": 类似于Counting Sort的方法, 不同的是这里出于节约空间的考量把把原始数据放到一个unordered map中, 然后再在这unordered map中解决这个问题</br>
-* 131, "Palindrome Partitioning": 就和之前找数组的全排列横向，用回溯=递归+栈来解</br>
-* 132, "Palindrome Partitioning II": 一个例子分四个版本详细说明什么叫`DP = Recurse + Buffer`</br>
-* 135, "Candy": 和42题一模一样，这种找一个数组内极大极小值再做操作的题都是左右两遍遍历解决</br>
-* 136, "Single Number": 异或操作找重复数字，往事如烟</br>
-* 142, "Linked List Cycle II": 环形链表，快慢指针，需要注意的是因为快指针速度是慢指针的两倍，所以慢指针最多只跑一圈就会被快指针套圈</br>
-* 146, "LRU Cache": 用计数器的方式决定是否真的进行替换</br>
+* 0131, "Palindrome Partitioning": 就和之前找数组的全排列横向，用回溯=递归+栈来解</br>
+* 0132, "Palindrome Partitioning II": 一个例子分四个版本详细说明什么叫`DP = Recurse + Buffer`</br>
+* 0135, "Candy": 和42题一模一样，这种找一个数组内极大极小值再做操作的题都是左右两遍遍历解决</br>
+* 0136, "Single Number": 异或操作找重复数字，往事如烟</br>
+* 0142, "Linked List Cycle II": 环形链表，快慢指针，需要注意的是因为快指针速度是慢指针的两倍，所以慢指针最多只跑一圈就会被快指针套圈</br>
+* 0146, "LRU Cache": 用计数器的方式决定是否真的进行替换</br>
+* 0148, "Sort List": 典型的 devide and conquer

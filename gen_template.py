@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
             asterisk = 53 * '*'
             f.write(f'/{asterisk}\n')
-            f.write('Description:\n')
+            f.write('Description:\n\n')
             f.write(f'{asterisk}/\n\n')
 
             f.write('#include "../includes.hpp"\n\n')
