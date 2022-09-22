@@ -24,6 +24,9 @@ if __name__ == '__main__':
 
     for quest_id in quest_ids:
         dir_name = get_dir(quest_id)
+        if not os.path.exists(dir_name):
+            os.makedirs(dir_name)
+
         file_name = f'{quest_id:0>4d}.hpp'
         file_path = os.path.join(dir_name, file_name)
         assert not os.path.exists(file_path), f'{file_path} for quest {quest_id} exists'
