@@ -20,6 +20,7 @@ using namespace std;
 
 #define IO std::cout
 #define IO_WITH_INFO IO << __FILE__ << ":" << __LINE__ << " -> "
+#define EOL std::endl
 
 #define LOG_ARRAY_WITH_RANGE(arr, start, end)                                  \
     {                                                                          \
@@ -30,7 +31,7 @@ using namespace std;
                 IO << " ";                                                     \
             }                                                                  \
         }                                                                      \
-        IO << "}" << std::endl;                                                \
+        IO << "}" << EOL;                                                      \
     }
 
 #define LOG_ARRAY(arr) LOG_ARRAY_WITH_RANGE(arr, 0, arr.size())
@@ -38,15 +39,15 @@ using namespace std;
 #define LOG_ARRAY2D_WITH_RANGE(arr, start1d, end1d, start2d, end2d)            \
     {                                                                          \
         IO_WITH_INFO << #arr << "[" << start1d << ":" << end1d << "]["         \
-                     << start2d << ":" << end2d << "] {" << std::endl;         \
+                     << start2d << ":" << end2d << "] {" << EOL;               \
         for (size_t i = start1d; i < end1d; ++i) {                             \
             IO << "    ";                                                      \
             for (size_t j = start2d; j < end2d; ++j) {                         \
                 IO << arr[i][j] << " ";                                        \
             }                                                                  \
-            IO << std::endl;                                                   \
+            IO << EOL;                                                         \
         }                                                                      \
-        IO << "}" << std::endl;                                                \
+        IO << "}" << EOL;                                                      \
     }
 
 #define LOG_ARRAY2D(arr)                                                       \
@@ -62,17 +63,21 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args... args) {
 
 #define LOG_VAR(...)                                                           \
     {                                                                          \
+        IO_WITH_INFO << #__VA_ARGS__ << ": ";                                  \
         print_impl(__VA_ARGS__);                                               \
-        IO << std::endl;                                                       \
+        IO << EOL;                                                             \
     }
+
+#define LOG_LITERAL(literal)                                                   \
+    { IO_WITH_INFO << #literal << ": " << literal << EOL; }
 
 #define LOG_MAP(dict)                                                          \
     {                                                                          \
-        IO_WITH_INFO << #dict << " {" << std::endl;                            \
+        IO_WITH_INFO << #dict << " {" << EOL;                                  \
         for (auto &&kv : dict) {                                               \
-            IO << "    " << kv.first << ": " << kv.second << std::endl;        \
+            IO << "    " << kv.first << ": " << kv.second << EOL;              \
         }                                                                      \
-        IO << "}" << std::endl;                                                \
+        IO << "}" << EOL;                                                      \
     }
 
 #define LOG_LIST(head, val)                                                    \
@@ -86,7 +91,7 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args... args) {
                 IO << " ";                                                     \
             }                                                                  \
         }                                                                      \
-        IO << "}" << std::endl;                                                \
+        IO << "}" << EOL;                                                      \
     }
 
 #endif

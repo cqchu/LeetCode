@@ -33,4 +33,9 @@
 * 0136, "Single Number": 异或操作找重复数字，往事如烟</br>
 * 0142, "Linked List Cycle II": 环形链表，快慢指针，需要注意的是因为快指针速度是慢指针的两倍，所以慢指针最多只跑一圈就会被快指针套圈</br>
 * 0146, "LRU Cache": 用计数器的方式决定是否真的进行替换</br>
-* 0148, "Sort List": 典型的 devide and conquer
+* 0148, "Sort List": 典型的 devide and conquer</br>
+* 0149, "Max Points on a Line": 就硬枚举，毫无技巧，就当长个见识背个题吧</br>
+* 0152, "Maximum Product Subarray": 整两个dp array交错着来</br>
+* 0164, "Maximum Gap": 时间复杂度O(n)，首先要想到桶排序，桶排序是基于统计而非基于比较的，时间复杂度较低而空间复杂度较高</br>
+* 0169, "Majority Element": 很精妙，消元</br>
+* 0174, "Dungeon Game": 倒序dp，因为有加血的过程，正向dp会丢失信息</br>
