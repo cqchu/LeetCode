@@ -1,3 +1,11 @@
+### usage
+```bash
+python format.py                        # format all *.hpp file
+python gen_template.py -i problem-id    # generate code template
+```
+
+### questions
+
 * 0004, "Median of Two Sorted Arrays": 设计index pointor</br>
 * 0010, "Regular Expression Matching": 正则式匹配问题, 要考虑的情况挺多的, 故而用递归间接的遍历了这些情况而不用写很多判定代码</br>
 * 0011, "Container With Most Water": 也是一个index pointor</br>
