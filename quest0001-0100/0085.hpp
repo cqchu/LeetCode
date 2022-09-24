@@ -20,7 +20,7 @@ Output: 6
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int maximalRectangle(vector<vector<char>> &matrix) {
         int maxArea = 0;
         // Convert the `m*n` 2D maximal rectangle problem to `m` 1D

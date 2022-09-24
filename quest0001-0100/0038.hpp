@@ -3,8 +3,8 @@
 
 /************************************************
 Description:
-The count-and-say sequence is the sequence of integers with the first five terms
-as following:
+The count-and-say sequence is the sequence of integers with the first five
+terms as following:
 1.     1
 2.     11
 3.     21
@@ -31,7 +31,7 @@ Output: "1211"
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     string countAndSay(int n) {
         if (n == 1) {
             return string("1");

@@ -21,7 +21,7 @@ code definition to get new method signature.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<vector<int>> merge(vector<vector<int>> &intervals) {
         sort(intervals.begin(), intervals.end(),
              [](vector<int> a, vector<int> b) -> bool { return a[0] < b[0]; });

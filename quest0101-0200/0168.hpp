@@ -35,13 +35,13 @@ Constraints:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     string convertToTitle(int columnNumber) {
         stringstream ss;
         while (columnNumber != 0) {
             ss << static_cast<char>((columnNumber - 1) % 26 + 'A');
-            // cout << columnNumber << " " << columnNumber-1 / 26  << " " <<
-            // static_cast<char>((columnNumber-1) % 26 + 'A') << endl;
+            // cout << columnNumber << " " << columnNumber-1 / 26  << " "
+            // << static_cast<char>((columnNumber-1) % 26 + 'A') << endl;
             columnNumber = (columnNumber - 1) / 26;
         }
         string res = ss.str();

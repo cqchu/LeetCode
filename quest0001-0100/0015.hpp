@@ -19,7 +19,7 @@ A solution set is:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     /*
     int cmp(vector<int> a, vector<int> b)
     {
@@ -101,7 +101,6 @@ class Solution {
                     do {
                         endPtr--;
                     } while (nums[endPtr] == nums[endPtr + 1]);
-
                 } else if (nums[startPtr] + nums[endPtr] > -nums[cur]) {
                     do {
                         endPtr--;

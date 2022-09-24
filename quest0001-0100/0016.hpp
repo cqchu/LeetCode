@@ -15,7 +15,7 @@ The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int threeSumClosest(vector<int> &nums, int target) {
         if (nums.size() < 3)
             return 0;

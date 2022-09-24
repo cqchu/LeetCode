@@ -32,7 +32,7 @@ Output: false
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     bool searchMatrix(vector<vector<int>> &matrix, int target) {
         if (matrix.size() == 0 or matrix[0].size() == 0)
             return false;

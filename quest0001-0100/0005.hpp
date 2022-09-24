@@ -19,7 +19,7 @@ Output: "bb"
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     string longestPalindrome(string s) {
         int maxLen = 0, startIdx = 0;
         for (int i = 0; i < s.length(); i++) {

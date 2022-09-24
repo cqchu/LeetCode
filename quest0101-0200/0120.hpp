@@ -23,7 +23,7 @@ the total number of rows in the triangle.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int minimumTotal(vector<vector<int>> &triangle) {
         if (triangle.size() == 0)
             return 0;

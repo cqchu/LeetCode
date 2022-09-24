@@ -12,8 +12,8 @@ Output: 6
 Explanation: [4,-1,2,1] has the largest sum = 6.
 
 Follow up:
-If you have figured out the O(n) solution, try coding another solution using the
-divide and conquer approach, which is more subtle.
+If you have figured out the O(n) solution, try coding another solution using
+the divide and conquer approach, which is more subtle.
 *************************************************/
 
 #include "../includes.hpp"
@@ -90,7 +90,7 @@ divide and conquer approach, which is more subtle.
 // };
 
 class Solution {
-  public:
+public:
     int maxSubArray(vector<int> &nums) {
         // OPT[i] = max(OPT[i-1] + i, OPT[i-1])
         int actualMax = nums[0], maxSoFar = nums[0];

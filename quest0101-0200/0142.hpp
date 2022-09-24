@@ -41,7 +41,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *findCycleInput(ListNode *headNode, ListNode *meetNode) {
         while (headNode != meetNode) {
             headNode = headNode->next;

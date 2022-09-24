@@ -21,7 +21,7 @@ Output: 0
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int recurse(int startIdx, int endIdx, vector<int> &nums) {
         if (endIdx - startIdx <= 1)
             return min(nums[startIdx], nums[endIdx]);

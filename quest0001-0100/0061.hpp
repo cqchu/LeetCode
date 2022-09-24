@@ -32,7 +32,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *rotateRight(ListNode *head, int k) {
         int len = 0;
         ListNode *curPos = head;

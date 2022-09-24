@@ -30,7 +30,7 @@ vertically.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void DFS(vector<vector<char>> &board, int i, int j) {
         if (i < 0 || i >= board.size() || j < 0 || j >= board[0].size())
             return;

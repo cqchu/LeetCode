@@ -3,8 +3,8 @@
 
 /*************************************************************
 Description:
-Given an input string (s) and a pattern (p), implement wildcard pattern matching
-with support for '?' and '*'.
+Given an input string (s) and a pattern (p), implement wildcard pattern
+matching with support for '?' and '*'.
 '?' Matches any single character.
 '*' Matches any sequence of characters (including the empty sequence).
 The matching should cover the entire input string (not partial).
@@ -33,8 +33,8 @@ Input:
 s = "cb"
 p = "?a"
 Output: false
-Explanation: '?' matches 'c', but the second letter is 'a', which does not match
-'b'.
+Explanation: '?' matches 'c', but the second letter is 'a', which does not
+match 'b'.
 
 Example 4:
 Input:
@@ -54,7 +54,7 @@ Output: false
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     // 构建DP模型，推导DP状态转移函数
     bool isMatch(string s, string p) {
         // 初始化DP矩阵相关设置

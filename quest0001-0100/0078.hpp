@@ -24,7 +24,7 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void recurse(vector<int> &nums, int curPos, vector<vector<int>> &res) {
         if (curPos == nums.size() - 1) {
             vector<int> tmp(0);

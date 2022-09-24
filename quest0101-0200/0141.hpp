@@ -39,7 +39,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     bool hasCycle(ListNode *head) {
         if (head == nullptr)
             return false;

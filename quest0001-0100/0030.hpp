@@ -3,9 +3,9 @@
 
 /**********************************************************
 Description:
-You are given a string, s, and a list of words, that are all of the same length.
-Find all starting indices of substring(s) in s that is a concatenation of each
-word in words exactly once and without any intervening characters.
+You are given a string, s, and a list of words, that are all of the same
+length. Find all starting indices of substring(s) in s that is a concatenation
+of each word in words exactly once and without any intervening characters.
 
 Example 1:
 Input:
@@ -26,7 +26,7 @@ Output: []
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<int> findSubstring(string s, vector<string> &words) {
         vector<int> res;
         if (s == "" || words.size() == 0)

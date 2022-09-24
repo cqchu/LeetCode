@@ -44,7 +44,7 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     bool justify(string s, vector<string> &wordDict) {
         if (s.size() == 0)
             return true;

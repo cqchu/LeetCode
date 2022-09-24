@@ -35,7 +35,7 @@ stacks.
 #include "../includes.hpp"
 
 class MinStack {
-  public:
+public:
     vector<int> data;
     vector<int> minVal;
     MinStack() {}

@@ -29,7 +29,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     void DFS(TreeNode *root, int curDepth, int &globalMax) {
         if (root == NULL) {
             globalMax = globalMax < curDepth ? curDepth : globalMax;

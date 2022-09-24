@@ -27,7 +27,7 @@ and not a substring.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int lengthOfLongestSubstring(string s) {
         int length = 0, startIdx = 0, curIdx = 0;
         vector<int> existFlag(128, -1);

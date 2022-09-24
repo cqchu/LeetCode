@@ -30,7 +30,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     //     void preorder(TreeNode* root, vector<int> &preSeq) {
     //         if (root == NULL)
     //             return;

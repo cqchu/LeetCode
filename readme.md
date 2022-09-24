@@ -47,3 +47,4 @@ python gen_template.py -i problem-id    # generate code template
 * 0164, "Maximum Gap": 时间复杂度O(n)，首先要想到桶排序，桶排序是基于统计而非基于比较的，时间复杂度较低而空间复杂度较高</br>
 * 0169, "Majority Element": 很精妙，消元</br>
 * 0174, "Dungeon Game": 倒序dp，因为有加血的过程，正向dp会丢失信息</br>
+* 0187, "Repeated DNA Sequences": 更低overhead的记录方法</br>

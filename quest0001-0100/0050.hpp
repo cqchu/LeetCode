@@ -29,7 +29,7 @@ Note:
 // �������ʱ�仹����, Ȼ����Ϊ�ұߵ�����ߣ�����ֱ�Ӹ��ý��
 // ��ʱʱ�临�Ӷ�ΪO(logn)
 class Solution {
-  public:
+public:
     double myPow(double x, int n) {
         if (x == 0 && n < 0)
             return numeric_limits<double>::infinity();

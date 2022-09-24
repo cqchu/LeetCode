@@ -17,7 +17,7 @@ Output: 6
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int compute(const vector<int> &height, const int left, const int right) {
         int highest =
             height[left] > height[right] ? height[right] : height[left];

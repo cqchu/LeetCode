@@ -18,7 +18,7 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     bool isPalindrome(string &s, int startIdx, int endIdx) {
         if (endIdx < startIdx) {
             return false;

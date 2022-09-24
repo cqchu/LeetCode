@@ -25,7 +25,7 @@ Would allow duplicates affect the run-time complexity? How and why?
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int recurse(int startIdx, int endIdx, vector<int> &nums) {
         while (nums[startIdx] == nums[endIdx] && startIdx < endIdx) {
             ++startIdx;

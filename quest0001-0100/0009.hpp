@@ -3,8 +3,8 @@
 
 /**********************************************************
 Description:
-Determine whether an integer is a palindrome. An integer is a palindrome when it
-reads the same backward as forward.
+Determine whether an integer is a palindrome. An integer is a palindrome when
+it reads the same backward as forward.
 
 Example 1:
 Input: 121
@@ -28,7 +28,7 @@ Coud you solve it without converting the integer to a string?
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     bool isPalindrome(int x) {
         if (x < 0)
             return false;

@@ -7,8 +7,8 @@ Given a string S and a string T, count the number of distinct subsequences of S
 which equals T. A subsequence of a string is a new string which is formed from
 the original string by deleting some (can be none) of the characters without
 disturbing the relative positions of the remaining characters. (ie, "ACE" is a
-subsequence of "ABCDE" while "AEC" is not). It's guaranteed the answer fits on a
-32-bit signed integer.
+subsequence of "ABCDE" while "AEC" is not). It's guaranteed the answer fits on
+a 32-bit signed integer.
 
 Example 1:
 Input: S = "rabbbit", T = "rabbit"
@@ -48,7 +48,7 @@ babgbag
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int numDistinct(string s, string t) {
         vector<vector<unsigned int>> dp(s.size() + 1,
                                         vector<unsigned int>(t.size() + 1, 0));

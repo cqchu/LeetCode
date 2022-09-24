@@ -24,7 +24,7 @@ s consists only of printable ASCII characters.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     bool isAlphanumeric(char c) {
         return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
                (c >= '0' && c <= '9');

@@ -2,6 +2,7 @@
 #define __INCLUDES_H
 
 #include <algorithm>
+#include <bitset>
 #include <climits>
 #include <cmath>
 #include <cstring>
@@ -61,15 +62,24 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args... args) {
     print_impl(std::forward<Args>(args)...);
 }
 
-#define LOG_VAR(...)                                                           \
+#define LOG_VARS(...)                                                          \
     {                                                                          \
         IO_WITH_INFO << #__VA_ARGS__ << ": ";                                  \
         print_impl(__VA_ARGS__);                                               \
         IO << EOL;                                                             \
     }
 
-#define LOG_LITERAL(literal)                                                   \
-    { IO_WITH_INFO << #literal << ": " << literal << EOL; }
+#define LOG_EXPR(expr)                                                         \
+    { IO_WITH_INFO << #expr << ": " << expr << EOL; }
+
+#define LOG_HEX(expr)                                                          \
+    { IO_WITH_INFO << #expr << ": 0x" << std::hex << expr << EOL; }
+
+#define LOG_BIN(expr)                                                          \
+    {                                                                          \
+        IO_WITH_INFO << #expr << ": 0b" << std::bitset<sizeof(expr) * 8>(expr) \
+                     << EOL;                                                   \
+    }
 
 #define LOG_MAP(dict)                                                          \
     {                                                                          \

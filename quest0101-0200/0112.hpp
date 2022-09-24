@@ -30,7 +30,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     bool DFS(TreeNode *root, int pathSum, int givenVal) {
         if (root == NULL)
             return false;

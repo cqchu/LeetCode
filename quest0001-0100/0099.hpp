@@ -51,7 +51,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     void inorder(TreeNode *root, vector<int> &inorderSeq,
                  unordered_map<int, TreeNode *> &val2ptr) {
         if (root == NULL)

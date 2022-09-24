@@ -19,7 +19,7 @@ Output: -2
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int divide(int dividend, int divisor) {
         int op = 1;
         long long dividendl = dividend;

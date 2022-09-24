@@ -33,7 +33,7 @@ Output: 701
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int titleToNumber(string columnTitle) {
         int res = 0;
         for (auto c : columnTitle) {

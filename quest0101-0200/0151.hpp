@@ -12,7 +12,8 @@ Output: "blue is sky the"
 Example 2:
 Input: "  hello world!  "
 Output: "world! hello"
-Explanation: Your reversed string should not contain leading or trailing spaces.
+Explanation: Your reversed string should not contain leading or trailing
+spaces.
 
 Example 3:
 Input: "a good   example"
@@ -33,7 +34,7 @@ For C programmers, try to solve it in-place in O(1) extra space.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int updataStartPos(int startPos, string &s) {
         while (startPos < s.size() && s[startPos] == ' ')
             startPos++;

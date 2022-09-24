@@ -44,7 +44,7 @@ n == dungeon[i].length
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int cal_consume(int update, int cur_consume) {
         if (update < 0 && cur_consume <= 0)
             return -update;

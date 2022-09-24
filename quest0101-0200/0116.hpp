@@ -12,8 +12,8 @@ struct Node {
   Node *next;
 }
 Populate each next pointer to point to its next right node. If there is no next
-right node, the next pointer should be set to NULL. Initially, all next pointers
-are set to NULL.
+right node, the next pointer should be set to NULL. Initially, all next
+pointers are set to NULL.
 
 Follow up:
 You may only use constant extra space.
@@ -33,7 +33,7 @@ pointers, with '#' signifying the end of each level.
 
 // Definition for a Node.
 class Node {
-  public:
+public:
     int val;
     Node *left;
     Node *right;
@@ -45,7 +45,7 @@ class Node {
 };
 
 class Solution {
-  public:
+public:
     // bfs by using the `next` pointer
     Node *connect(Node *root) {
         if (root == NULL)

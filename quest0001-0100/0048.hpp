@@ -45,7 +45,7 @@ rotate the input matrix in-place such that it becomes:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<vector<int>> helper(vector<vector<int>> matrix) {
         if (matrix.size() == 0)
             return matrix;

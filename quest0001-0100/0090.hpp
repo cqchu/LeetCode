@@ -23,7 +23,7 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void recurse(vector<vector<int>> &res, vector<int> &nums, int curPos,
                  int &updatedLen) {
         if (curPos == nums.size()) {

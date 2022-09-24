@@ -20,7 +20,7 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int maxProduct(vector<int> &nums) {
         if (nums.size() == 0)
             return 0;

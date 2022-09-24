@@ -4,7 +4,8 @@
 /****************************************************
 Description:
 Given two words (beginWord and endWord), and a dictionary's word list, find the
-length of shortest transformation sequence from beginWord to endWord, such that:
+length of shortest transformation sequence from beginWord to endWord, such
+that:
 1. Only one letter can be changed at a time.
 2. Each transformed word must exist in the word list.
 
@@ -39,7 +40,7 @@ transformation.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     /* Construct a graph, the vertexes are the words, two vertexes are
     connected if they have only a different letter. Then the shortest path
     between the beginWord and the endWord is the answer

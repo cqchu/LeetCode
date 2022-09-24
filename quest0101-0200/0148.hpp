@@ -25,7 +25,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     void print(ListNode *head) {
         while (head != nullptr) {
             cout << head->val << " ";

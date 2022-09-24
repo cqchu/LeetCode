@@ -4,8 +4,8 @@
 /*************************************************
 Description:
 The n-queens puzzle is the problem of placing n queens on an n��n chessboard
-such that no two queens attack each other. Given an integer n, return the number
-of distinct solutions to the n-queens puzzle.
+such that no two queens attack each other. Given an integer n, return the
+number of distinct solutions to the n-queens puzzle.
 
 Example:
 Input: 4
@@ -30,7 +30,7 @@ above.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     // level: cur row,
     void recurse(int level, vector<int> &pos, int n, int &sol) {
         if (level == n) {

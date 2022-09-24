@@ -3,8 +3,8 @@
 
 /*************************************************
 Description:
-Given a matrix of m x n elements (m rows, n columns), return all elements of the
-matrix in spiral order.
+Given a matrix of m x n elements (m rows, n columns), return all elements of
+the matrix in spiral order.
 
 Example 1:
 Input:
@@ -28,7 +28,7 @@ Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<int> spiralOrder(vector<vector<int>> &matrix) {
         if (matrix.size() == 0) {
             return vector<int>(0);

@@ -35,7 +35,7 @@ is 20 = 1. Therefore, for n = 0 the gray code sequence is [0].
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     /**
      * In Gray code, the key is symmetry, for example, n = 3
      0 0 0    // The top part is factually the Gray code with n = 2

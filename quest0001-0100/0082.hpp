@@ -23,7 +23,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *deleteDuplicates(ListNode *head) {
         if (head == NULL)
             return head;

@@ -3,8 +3,8 @@
 
 /*************************************************
 Description:
-Given a positive integer n, generate a square matrix filled with elements from 1
-to n2 in spiral order.
+Given a positive integer n, generate a square matrix filled with elements from
+1 to n2 in spiral order.
 
 Example:
 Input: 3
@@ -19,7 +19,7 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<vector<int>> generateMatrix(int n) {
         vector<vector<int>> res(n, vector<int>(n));
         int top = 0, down = n, left = 0, right = n;

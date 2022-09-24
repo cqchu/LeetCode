@@ -16,7 +16,7 @@ Therefore its length is 4.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int longestConsecutive(vector<int> &nums) {
         int maxLen = 0;
         unordered_map<int, int> hash; // val -> sequence len

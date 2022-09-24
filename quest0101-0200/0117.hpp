@@ -11,8 +11,8 @@ struct Node {
   Node *next;
 }
 Populate each next pointer to point to its next right node. If there is no next
-right node, the next pointer should be set to NULL. Initially, all next pointers
-are set to NULL.
+right node, the next pointer should be set to NULL. Initially, all next
+pointers are set to NULL.
 
 Follow up:
 You may only use constant extra space.
@@ -36,7 +36,7 @@ The number of nodes in the given tree is less than 6000.
 
 // Definition for a Node.
 class Node {
-  public:
+public:
     int val;
     Node *left;
     Node *right;
@@ -48,7 +48,7 @@ class Node {
 };
 
 class Solution {
-  public:
+public:
     Node *connect(Node *root) {
         if (root == NULL)
             return root;

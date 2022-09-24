@@ -22,7 +22,7 @@ Output: 99
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int singleNumber(vector<int> &nums) {
         const int n = nums.size();
 

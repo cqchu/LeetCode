@@ -29,7 +29,7 @@ denominator != 0
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     string fractionToDecimal(int numerator, int denominator) {
         unordered_map<long, int> history;
         stringstream ss;

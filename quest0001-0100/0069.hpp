@@ -22,7 +22,7 @@ Explanation: The square root of 8 is 2.82842..., and since
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int mySqrt(int x) {
         // for (long i=0; i <= x; i++) {
         //     if (i*i == x) {

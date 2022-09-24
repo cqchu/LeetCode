@@ -29,7 +29,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     void reverseK(ListNode *head, ListNode *tail, int k) {
         if (head == NULL || tail == NULL || head == tail)
             return;

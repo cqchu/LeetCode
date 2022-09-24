@@ -33,7 +33,7 @@ A solution set is:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<vector<int>> combinationSum(vector<int> &candidates, int target) {
         vector<vector<int>> sol;
         // sort()

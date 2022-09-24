@@ -3,8 +3,8 @@
 
 /****************************************************
 Description:
-Given a m x n matrix, if an element is 0, set its entire row and column to 0. Do
-it in-place.
+Given a m x n matrix, if an element is 0, set its entire row and column to 0.
+Do it in-place.
 
 Example 1:
 Input:
@@ -43,7 +43,7 @@ Follow up:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void setZeroes(vector<vector<int>> &matrix) {
         vector<int> row, col;
         for (int i = 0; i < matrix.size(); i++) {

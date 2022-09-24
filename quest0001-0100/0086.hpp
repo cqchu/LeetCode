@@ -21,7 +21,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *partition(ListNode *head, int x) {
         ListNode *insertNode = NULL, *curNode = head, *preNode = NULL;
         bool fakeHead = false;

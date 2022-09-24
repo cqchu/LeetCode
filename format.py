@@ -16,7 +16,7 @@ def process_file(file, clang_format, write):
     result = subprocess.check_output(
         [
             clang_format,
-            "-style={BasedOnStyle: LLVM, IndentWidth: 4}",
+            "-style={BasedOnStyle: LLVM, IndentWidth: 4, AccessModifierOffset: -4}",
             "-verbose",
             "-assume-filename={}".format(file),
             # file,

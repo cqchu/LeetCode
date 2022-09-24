@@ -45,7 +45,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     void DFS(TreeNode *root, int &sum, int preVal) {
         if (root->left == NULL && root->right == NULL) {
             sum = sum + preVal * 10 + root->val;

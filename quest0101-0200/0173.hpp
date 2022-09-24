@@ -15,13 +15,13 @@ the right, then returns the number at the pointer. Notice that by initializing
 the pointer to a non-existent smallest number, the first call to next() will
 return the smallest element in the BST.
 
-You may assume that next() calls will always be valid. That is, there will be at
-least a next number in the in-order traversal when next() is called.
+You may assume that next() calls will always be valid. That is, there will be
+at least a next number in the in-order traversal when next() is called.
 
 Example 1:
 Input
-["BSTIterator", "next", "next", "hasNext", "next", "hasNext", "next", "hasNext",
-"next", "hasNext"]
+["BSTIterator", "next", "next", "hasNext", "next", "hasNext", "next",
+"hasNext", "next", "hasNext"]
 [[[7, 3, 15, null, null, 9, 20]], [], [], [], [], [], [], [], [], []]
 Output
 [null, 3, 7, true, 9, true, 15, true, 20, false]
@@ -77,7 +77,7 @@ class BSTIterator {
         dfs(root->right);
     }
 
-  public:
+public:
     BSTIterator(TreeNode *root) : cur(0) {
         dfs(root);
         total_size = helper.size();
@@ -101,7 +101,7 @@ class BSTIterator {
         }
     }
 
-  public:
+public:
     BSTIterator(TreeNode *root) { update_subtree(root); }
 
     int next() {

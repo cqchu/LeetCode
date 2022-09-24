@@ -32,7 +32,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     TreeNode *buildSubTree(vector<int> &postorder, vector<int> &inorder,
                            int postStart, int inStart, int len) {
         if (len == 0)

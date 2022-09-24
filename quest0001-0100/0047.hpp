@@ -3,8 +3,8 @@
 
 /*************************************************
 Description:
-Given a collection of numbers that might contain duplicates, return all possible
-unique permutations.
+Given a collection of numbers that might contain duplicates, return all
+possible unique permutations.
 
 Example:
 
@@ -20,7 +20,7 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void recurse(int curPos, vector<int> nums, vector<vector<int>> &res) {
         if (curPos == nums.size() - 1) {
             res.push_back(nums);

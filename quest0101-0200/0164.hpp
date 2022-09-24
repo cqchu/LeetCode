@@ -27,7 +27,7 @@ Constraints:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int maximumGap(vector<int> &nums) {
         if (nums.empty() || nums.size() < 2)
             return 0;

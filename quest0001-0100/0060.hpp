@@ -24,7 +24,7 @@ Output: "2314"
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int factorial(vector<int> &fac, int i) {
         if (i == 1) {
             fac[i - 1] = 1;

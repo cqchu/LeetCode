@@ -26,8 +26,8 @@ Input:
 s = "aa"
 p = "a*"
 Output: true
-Explanation: '*' means zero or more of the precedeng element, 'a'. Therefore, by
-repeating 'a' once, it becomes "aa".
+Explanation: '*' means zero or more of the precedeng element, 'a'. Therefore,
+by repeating 'a' once, it becomes "aa".
 
 Example 3:
 Input:
@@ -54,7 +54,7 @@ Output: false
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     bool isMatch(string s, string p) {
         if (p.length() == 0 && s.length() != 0)
             return false;

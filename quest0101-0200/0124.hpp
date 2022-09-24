@@ -35,7 +35,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     long maxSubTree(TreeNode *root, long &curMax) {
         if (root == NULL)
             return -INT_MAX;

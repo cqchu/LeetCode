@@ -28,7 +28,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     TreeNode *buildSubTree(vector<int> &preorder, vector<int> &inorder,
                            int preStart, int inStart, int len) {
         if (len == 0)

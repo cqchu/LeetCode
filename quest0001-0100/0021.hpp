@@ -21,7 +21,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
         ListNode *head = NULL, *cur = NULL;
         while (l1 != NULL || l2 != NULL) {

@@ -35,7 +35,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     void flatten(TreeNode *root) {
         if (root == NULL)
             return;

@@ -23,8 +23,8 @@ Some examples:
 
 Note: It is intended for the problem statement to be ambiguous. You should
 gather all requirements up front before implementing one. However, here is a
-list of characters that can be in a valid decimal number: Numbers 0-9 Exponent -
-"e" Positive/negative sign - "+"/"-" Decimal point - "."
+list of characters that can be in a valid decimal number: Numbers 0-9 Exponent
+- "e" Positive/negative sign - "+"/"-" Decimal point - "."
 
 Of course, the context of these characters also matters in the input.
 *******************************************/
@@ -32,7 +32,7 @@ Of course, the context of these characters also matters in the input.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     bool maybeValid(char ch) {
         return (ch >= '0' && ch <= '9') || ch == '+' || ch == '-' ||
                ch == 'e' || ch == '.';

@@ -23,7 +23,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *swapPairs(ListNode *head) {
         ListNode *A = NULL, *B = NULL, *C = NULL;
         ListNode *beforeHead = new ListNode(0);

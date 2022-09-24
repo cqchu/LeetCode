@@ -8,7 +8,8 @@ head.
 
 Example:
 Given linked list: 1->2->3->4->5, and n = 2.
-After removing the second node from the end, the linked list becomes 1->2->3->5.
+After removing the second node from the end, the linked list becomes
+1->2->3->5.
 
 Note:
 Given n will always be valid.
@@ -27,7 +28,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *removeNthFromEnd(ListNode *head, int n) {
         if (head == NULL)
             return NULL;

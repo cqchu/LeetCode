@@ -31,9 +31,9 @@ Example 3:
 Input: intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
 Output: null
 Input Explanation: From the head of A, it reads as [2,6,4]. From the head of B,
-it reads as [1,5]. Since the two lists do not intersect, intersectVal must be 0,
-while skipA and skipB can be arbitrary values. Explanation: The two lists do not
-intersect, so return null.
+it reads as [1,5]. Since the two lists do not intersect, intersectVal must be
+0, while skipA and skipB can be arbitrary values. Explanation: The two lists do
+not intersect, so return null.
 
 Notes:
 If the two linked lists have no intersection at all, return null.
@@ -52,7 +52,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
         if (headA == nullptr || headB == nullptr)
             return nullptr;

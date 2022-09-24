@@ -27,7 +27,7 @@ overflows.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int reverse(int x) {
         if (fabs(x) > pow(2, 31))
             return 0;

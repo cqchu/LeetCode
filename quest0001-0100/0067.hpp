@@ -18,7 +18,7 @@ Output: "10101"
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     string addBinary(string a, string b) {
         int carry = 0, bitRes = 0, iA = 0, iB = 0;
         string res(max(a.size(), b.size()), '0');

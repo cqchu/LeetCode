@@ -24,7 +24,7 @@ A solution set is:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<vector<int>> fourSum(vector<int> &nums, int target) {
         vector<vector<int>> res;
         if (nums.size() < 4)

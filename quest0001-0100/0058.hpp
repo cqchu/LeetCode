@@ -16,7 +16,7 @@ Output: 5
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int lengthOfLastWord(string s) {
         int len = 0;
         bool findword = false;

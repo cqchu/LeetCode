@@ -39,7 +39,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     bool getDepth(TreeNode *root, int &depth) {
         if (root == NULL) {
             depth = -1;

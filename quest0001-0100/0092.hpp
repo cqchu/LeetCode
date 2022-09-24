@@ -20,7 +20,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *reverseBetween(ListNode *head, int m, int n) {
         ListNode *subTail = NULL, *frontEnd = NULL, *cur = head, *pre = NULL,
                  *next = NULL;

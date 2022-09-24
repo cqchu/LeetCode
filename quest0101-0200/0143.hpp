@@ -28,7 +28,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     void reorderList(ListNode *head) {
         vector<ListNode *> stk;
         for (ListNode *curNode = head; curNode != nullptr;

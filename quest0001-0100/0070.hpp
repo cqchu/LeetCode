@@ -28,7 +28,7 @@ Explanation: There are three ways to climb to the top.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int climbStairs(int n) {
         // vector<int> dp(n);
         // if (n == 0)

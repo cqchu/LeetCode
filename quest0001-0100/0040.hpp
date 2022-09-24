@@ -4,8 +4,8 @@
 /************************************************
 Description:
 Given a collection of candidate numbers (candidates) and a target number
-(target), find all unique combinations in candidates where the candidate numbers
-sums to target. Each number in candidates may only be used once in the
+(target), find all unique combinations in candidates where the candidate
+numbers sums to target. Each number in candidates may only be used once in the
 combination.
 
 Note:
@@ -34,7 +34,7 @@ A solution set is:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<vector<int>> combinationSum2(vector<int> &candidates, int target) {
         vector<vector<int>> sol;
         sort(candidates.begin(), candidates.end());

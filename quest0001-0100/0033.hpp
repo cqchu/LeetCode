@@ -21,7 +21,7 @@ Output: -1
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int search(vector<int> &nums, int target) {
         int startIdx = 0;
         int endIdx = nums.size() - 1;

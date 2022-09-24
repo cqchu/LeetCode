@@ -3,8 +3,8 @@
 
 /*******************************************
 Description:
-Given a string S and a string T, find the minimum window in S which will contain
-all the characters in T in complexity O(n).
+Given a string S and a string T, find the minimum window in S which will
+contain all the characters in T in complexity O(n).
 
 Example:
     Input: S = "ADOBECODEBANC", T = "ABC"
@@ -19,7 +19,7 @@ always be only one unique minimum window in S.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     string minWindow(string s, string t) {
         vector<int> hist(128, 0);
         for (char c : t)

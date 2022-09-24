@@ -14,7 +14,7 @@ Output: ["255.255.11.135", "255.255.111.35"]
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void recurse(string &s, vector<string> &res, string &prefix, int pos,
                  int depth) {
         if (depth == 4) {

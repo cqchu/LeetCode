@@ -31,9 +31,9 @@ Example 2:
 Input: adjList = [[]]
 Output: [[]]
 Explanation: Note that the input contains one empty list. The graph consists of
-only one node with val = 1 and it does not have any neighbors. Example 3: Input:
-adjList = [] Output: [] Explanation: This an empty graph, it does not have any
-nodes.
+only one node with val = 1 and it does not have any neighbors. Example 3:
+Input: adjList = [] Output: [] Explanation: This an empty graph, it does not
+have any nodes.
 
 Example 4:
 Input: adjList = [[2],[1]]
@@ -52,7 +52,7 @@ node.
 
 // Definition for a Node.
 class Node {
-  public:
+public:
     int val;
     vector<Node *> neighbors;
 
@@ -73,7 +73,7 @@ class Node {
 };
 
 class Solution {
-  public:
+public:
     Node *dfs(Node *node, unordered_map<int, Node *> &visited) {
         if (visited.find(node->val) == visited.end()) {
             Node *newNode = new Node(node->val);

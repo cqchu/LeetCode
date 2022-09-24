@@ -42,7 +42,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     bool checkTree(TreeNode *p, TreeNode *q) {
         if (p == NULL && q == NULL)
             return true;

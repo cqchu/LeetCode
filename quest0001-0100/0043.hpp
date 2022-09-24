@@ -3,8 +3,8 @@
 
 /*******************************************************
 Description:
-Given two non-negative integers num1 and num2 represented as strings, return the
-product of num1 and num2, also represented as a string.
+Given two non-negative integers num1 and num2 represented as strings, return
+the product of num1 and num2, also represented as a string.
 
 Example 1:
 Input: num1 = "2", num2 = "3"
@@ -25,7 +25,7 @@ to integer directly.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     string add(const string num1, const string num2) {
         int maxLen = max(num1.size(), num2.size());
         string res(maxLen + 1, '0');

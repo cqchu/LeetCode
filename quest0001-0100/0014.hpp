@@ -19,7 +19,7 @@ Explanation: There is no common prefix among the input strings.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     string longestCommonPrefix(vector<string> &strs) {
         string prefix = "";
         for (int idx = 0; strs.size() > 0; idx++) {

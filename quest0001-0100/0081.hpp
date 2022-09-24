@@ -24,7 +24,7 @@ may contain duplicates. Would this affect the run-time complexity? How and why?
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     bool search(vector<int> &nums, int target) {
         int left = 0, right = nums.size();
         while (left < right) {

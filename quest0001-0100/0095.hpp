@@ -3,8 +3,8 @@
 
 /****************************************************
 Description:
-Given an integer n, generate all structurally unique BST's (binary search trees)
-that store values 1 ... n.
+Given an integer n, generate all structurally unique BST's (binary search
+trees) that store values 1 ... n.
 
 Example:
 Input: 3
@@ -51,7 +51,7 @@ struct TreeNode {
  */
 
 class Solution {
-  public:
+public:
     TreeNode *copyTree(TreeNode *root) {
         if (root == NULL)
             return NULL;

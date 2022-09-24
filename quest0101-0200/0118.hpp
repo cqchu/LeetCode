@@ -20,7 +20,7 @@ it. Example: Input: 5 Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<vector<int>> generate(int numRows) {
         vector<vector<int>> res;
         for (int i = 0; i < numRows; i++) {

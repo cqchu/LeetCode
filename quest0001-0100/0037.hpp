@@ -22,7 +22,7 @@ solution. The given board size is always 9x9.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     set<char> getChoices(const vector<vector<char>> &board, int row, int col) {
         set<char> sc = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 

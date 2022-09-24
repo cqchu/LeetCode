@@ -175,7 +175,7 @@ cut.
 // /************************************* version 4 start
 // ***************************************
 class Solution {
-  public:
+public:
     int isPalindromeLazy(string &s, vector<vector<int>> &palin, int startIdx,
                          int endIdx) {
         if (palin[startIdx][endIdx] == INT_MAX) {

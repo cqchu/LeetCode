@@ -29,7 +29,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     vector<int> preorderTraversal(TreeNode *root) {
         vector<int> res;
         stack<TreeNode *> nodeStack;

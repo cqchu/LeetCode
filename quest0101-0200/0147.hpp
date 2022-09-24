@@ -5,9 +5,10 @@
 Description:
 Sort a linked list using insertion sort.
 
-A graphical example of insertion sort. The partial sorted list (black) initially
-contains only the first element in the list. With each iteration one element
-(red) is removed from the input data and inserted in-place into the sorted list
+A graphical example of insertion sort. The partial sorted list (black)
+initially contains only the first element in the list. With each iteration one
+element (red) is removed from the input data and inserted in-place into the
+sorted list
 
 Algorithm of Insertion Sort:
 Insertion sort iterates, consuming one input element each repetition, and
@@ -35,7 +36,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *insertionSortList(ListNode *head) {
         if (head == nullptr)
             return nullptr;

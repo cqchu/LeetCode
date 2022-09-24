@@ -17,7 +17,7 @@ Output: false
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     /*
     bool recurse(string &s1, string &s2, string &s3, int ptr1, int ptr2, int
     ptr3)

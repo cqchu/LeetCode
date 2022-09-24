@@ -25,7 +25,7 @@ struct ListNode {
 };
 
 class Solution {
-  public:
+public:
     ListNode *mergeKLists(vector<ListNode *> &lists) {
         ListNode *head = NULL;
         ListNode *cur = NULL;

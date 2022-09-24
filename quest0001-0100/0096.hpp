@@ -24,7 +24,7 @@ Given n = 3, there are a total of 5 unique BST's:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int numTrees(int n) {
         vector<int> dp(n + 1, 0);
         dp[1] = 1;

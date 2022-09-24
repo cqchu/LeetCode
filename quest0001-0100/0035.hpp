@@ -28,7 +28,7 @@ Output: 0
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int searchInsert(vector<int> &nums, int target) {
         int startIdx = 0, endIdx = nums.size() - 1;
         int midIdx = 0;

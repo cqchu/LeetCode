@@ -4,8 +4,8 @@
 /*********************************************************************
 Description:
 There are two sorted arrays nums1 and nums2 of size m and n respectively.
-Find the median of the two sorted arrays. The overall run time complexity should
-be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.
+Find the median of the two sorted arrays. The overall run time complexity
+should be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.
 
 Example 1:
 nums1 = [1, 3]
@@ -21,7 +21,7 @@ The median is (2 + 3)/2 = 2.5
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     /****************************************************************
     // complexity is O(m+n)
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)

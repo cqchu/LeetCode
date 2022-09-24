@@ -21,7 +21,7 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     vector<vector<int>> recurse(const vector<int> &nums,
                                 vector<bool> &visitFlag) {
         vector<vector<int>> res;

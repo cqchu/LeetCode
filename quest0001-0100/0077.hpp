@@ -3,8 +3,8 @@
 
 /*******************************************
 Description:
-Given two integers n and k, return all possible combinations of k numbers out of
-1 ... n.
+Given two integers n and k, return all possible combinations of k numbers out
+of 1 ... n.
 
 Example:
 Input: n = 4, k = 2
@@ -22,7 +22,7 @@ Output:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void recurse(vector<int> &num, int k, int curPos, vector<vector<int>> &res,
                  vector<int> &visited) {
         if (visited.size() == k) {

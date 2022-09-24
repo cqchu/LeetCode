@@ -31,7 +31,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     TreeNode *createSubTree(vector<int> &nums, int left, int right) {
         if (left >= right)
             return NULL;

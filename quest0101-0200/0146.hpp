@@ -32,7 +32,7 @@ cache.get(4);       // returns 4
 #include "../includes.hpp"
 
 class LRUCache {
-  public:
+public:
     unordered_map<int, int> cache_;
     unordered_map<int, int> visitCnt_;
     queue<int> visit_;

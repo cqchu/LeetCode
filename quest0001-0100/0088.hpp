@@ -21,7 +21,7 @@ Output: [1,2,2,3,5,6]
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void merge(vector<int> &nums1, int m, vector<int> &nums2, int n) {
         int nums1Idx = m - 1, nums2Idx = n - 1, newIdx = m + n - 1;
         while (newIdx >= 0 && nums1Idx >= 0 && nums2Idx >= 0) {

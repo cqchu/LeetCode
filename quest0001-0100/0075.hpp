@@ -22,7 +22,7 @@ you come up with a one-pass algorithm using only constant space?
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     void sortColors(vector<int> &nums) {
         // two pass
         // vector<int> cnt(3, 0);

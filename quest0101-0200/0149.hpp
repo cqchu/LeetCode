@@ -35,7 +35,7 @@ Explanation:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int maxPoints(vector<vector<int>> &points) {
         if (points.size() == 0 || points.size() == 1)
             return points.size();

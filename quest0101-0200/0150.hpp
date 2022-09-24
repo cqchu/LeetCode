@@ -9,8 +9,8 @@ expression.
 
 Note:
 Division between two integers should truncate toward zero.
-The given RPN expression is always valid. That means the expression would always
-evaluate to a result and there won't be any divide by zero operation.
+The given RPN expression is always valid. That means the expression would
+always evaluate to a result and there won't be any divide by zero operation.
 
 Example 1:
 Input: ["2", "1", "+", "3", "*"]
@@ -38,7 +38,7 @@ Explanation:
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     int evalRPN(vector<string> &tokens) {
         stack<int> si;
         for (string token : tokens) {

@@ -27,7 +27,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     void recurse(TreeNode *root, vector<int> &res) {
         if (root == NULL)
             return;

@@ -29,7 +29,7 @@ above.
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     // level: cur row,
     void recurse(int level, vector<int> &pos, int n,
                  vector<vector<string>> &sol) {

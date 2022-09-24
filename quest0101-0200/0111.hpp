@@ -29,7 +29,7 @@ struct TreeNode {
 };
 
 class Solution {
-  public:
+public:
     void DFS(TreeNode *root, int curDepth, int &minDepth) {
         if (root == NULL)
             return;

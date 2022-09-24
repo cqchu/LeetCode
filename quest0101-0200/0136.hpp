@@ -3,8 +3,8 @@
 
 /****************************************************
 Description:
-Given a non-empty array of integers, every element appears twice except for one.
-Find that single one.
+Given a non-empty array of integers, every element appears twice except for
+one. Find that single one.
 
 Note:
 Your algorithm should have a linear runtime complexity. Could you implement it
@@ -18,7 +18,7 @@ Output: 1
 #include "../includes.hpp"
 
 class Solution {
-  public:
+public:
     // int singleNumber(vector<int>& nums) {
     //     if (nums.size() == 0)
     //         return 0;
