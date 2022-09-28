@@ -28,8 +28,7 @@ public:
                         dp[i] = 2;
                     else
                         dp[i] = dp[i - 2] + 2;
-                } else if (i > 0 && i > dp[i - 1] &&
-                           s[i - dp[i - 1] - 1] == '(') {
+                } else if (i > 0 && i > dp[i - 1] && s[i - dp[i - 1] - 1] == '(') {
                     dp[i] = dp[i - 1] + 2;
                     if (i - dp[i - 1] - 2 >= 0)
                         dp[i] = dp[i] + dp[i - dp[i - 1] - 2];

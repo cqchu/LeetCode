@@ -43,8 +43,7 @@ public:
             }
 
             char leftChar = s[leftPtr] >= 'a' ? s[leftPtr] : s[leftPtr] + 32;
-            char rightChar =
-                s[rightPtr] >= 'a' ? s[rightPtr] : s[rightPtr] + 32;
+            char rightChar = s[rightPtr] >= 'a' ? s[rightPtr] : s[rightPtr] + 32;
             // cout << leftChar << " " << rightChar << endl;
             if (leftChar != rightChar)
                 return false;

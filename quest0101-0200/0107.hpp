@@ -33,8 +33,8 @@ struct TreeNode {
 
 class Solution {
 public:
-    TreeNode *buildSubTree(vector<int> &postorder, vector<int> &inorder,
-                           int postStart, int inStart, int len) {
+    TreeNode *buildSubTree(vector<int> &postorder, vector<int> &inorder, int postStart,
+                           int inStart, int len) {
         if (len == 0)
             return NULL;
         TreeNode *root = new TreeNode(postorder[postStart + len - 1]);
@@ -43,8 +43,7 @@ public:
             if (inorder[leftLen + inStart] == postorder[postStart + len - 1])
                 break;
         }
-        root->left =
-            buildSubTree(postorder, inorder, postStart, inStart, leftLen);
+        root->left = buildSubTree(postorder, inorder, postStart, inStart, leftLen);
         root->right = buildSubTree(postorder, inorder, postStart + leftLen,
                                    inStart + leftLen + 1, len - leftLen - 1);
         return root;

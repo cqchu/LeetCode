@@ -60,11 +60,10 @@ public:
     bool recurse(TreeNode *left, TreeNode *right) {
         if (left == NULL && right == NULL)
             return true;
-        if ((left == NULL && right != NULL) ||
-            (left != NULL && right == NULL) || left->val != right->val)
+        if ((left == NULL && right != NULL) || (left != NULL && right == NULL) ||
+            left->val != right->val)
             return false;
-        return recurse(left->right, right->left) &&
-               recurse(left->left, right->right);
+        return recurse(left->right, right->left) && recurse(left->left, right->right);
     }
 
     bool isSymmetric(TreeNode *root) {

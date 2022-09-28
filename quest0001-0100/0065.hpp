@@ -34,14 +34,14 @@ Of course, the context of these characters also matters in the input.
 class Solution {
 public:
     bool maybeValid(char ch) {
-        return (ch >= '0' && ch <= '9') || ch == '+' || ch == '-' ||
-               ch == 'e' || ch == '.';
+        return (ch >= '0' && ch <= '9') || ch == '+' || ch == '-' || ch == 'e' ||
+               ch == '.';
     }
 
     bool isNumber(string s) {
         int curPos = 0;
-        bool baseSignFlag = false, baseFlag = false, pointFlag = false,
-             expFlag = false, powSignFlag = false, powFlag = false;
+        bool baseSignFlag = false, baseFlag = false, pointFlag = false, expFlag = false,
+             powSignFlag = false, powFlag = false;
 
         int start = 0, end = s.size();
         for (start = 0; start < s.size() && s[start] == ' '; start++)
@@ -89,8 +89,8 @@ public:
 
         cout << baseSignFlag << baseFlag << pointFlag << expFlag << powSignFlag
              << powFlag << endl;
-        if (curPos == s.size() && baseSignFlag && baseFlag && pointFlag &&
-            !expFlag && !powSignFlag && !powFlag)
+        if (curPos == s.size() && baseSignFlag && baseFlag && pointFlag && !expFlag &&
+            !powSignFlag && !powFlag)
             return true;
 
         for (; curPos < s.size(); curPos++) {
@@ -122,8 +122,8 @@ public:
         cout << baseSignFlag << baseFlag << pointFlag << expFlag << powSignFlag
              << powFlag << endl;
 
-        return baseSignFlag && baseFlag && pointFlag && expFlag &&
-               powSignFlag && powFlag;
+        return baseSignFlag && baseFlag && pointFlag && expFlag && powSignFlag &&
+               powFlag;
     }
 };
 

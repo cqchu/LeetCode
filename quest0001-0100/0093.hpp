@@ -15,8 +15,7 @@ Output: ["255.255.11.135", "255.255.111.35"]
 
 class Solution {
 public:
-    void recurse(string &s, vector<string> &res, string &prefix, int pos,
-                 int depth) {
+    void recurse(string &s, vector<string> &res, string &prefix, int pos, int depth) {
         if (depth == 4) {
             if (s.size() - pos > 3 || s.size() - pos == 0)
                 return;

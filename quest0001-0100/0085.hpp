@@ -47,8 +47,7 @@ public:
         for (int i = 0; i < heights.size(); i++) {
             // if heights[i] < heights[i-1], i can be the right
             // boundary
-            if (!increHeight.empty() &&
-                heights[increHeight.top()] > heights[i]) {
+            if (!increHeight.empty() && heights[increHeight.top()] > heights[i]) {
                 right = i;
                 while (!increHeight.empty() &&
                        heights[increHeight.top()] >

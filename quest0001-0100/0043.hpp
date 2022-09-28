@@ -73,8 +73,7 @@ public:
                 break;
         }
         res = res.substr(zeroCnt, res.size());
-        cout << res.size() << ": " << res << " = " << num1 << " * " << num2
-             << endl;
+        cout << res.size() << ": " << res << " = " << num1 << " * " << num2 << endl;
         return res;
     }
 

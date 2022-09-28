@@ -96,10 +96,9 @@ public:
         int actualMax = nums[0], maxSoFar = nums[0];
         // cout << actualMax << " ";
         for (int i = 1; i < nums.size(); i++) {
-            maxSoFar = maxSoFar > 0
-                           ? maxSoFar + nums[i]
-                           : nums[i]; // maxSoFar > 0,
-                                      // ˵��ǰ������Ӵ�����gain��, �ʶ�ֵ�ñ���
+            maxSoFar = maxSoFar > 0 ? maxSoFar + nums[i]
+                                    : nums[i]; // maxSoFar > 0,
+                                               // ˵��ǰ������Ӵ�����gain��, �ʶ�ֵ�ñ���
             actualMax = max(actualMax,
                             maxSoFar); // maxSoFar����һ��DP��״̬,
                                        // cout << actualMax << " ";

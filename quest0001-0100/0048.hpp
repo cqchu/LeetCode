@@ -49,8 +49,7 @@ public:
     vector<vector<int>> helper(vector<vector<int>> matrix) {
         if (matrix.size() == 0)
             return matrix;
-        vector<vector<int>> tranpose(matrix[0].size(),
-                                     vector<int>(matrix.size(), 0));
+        vector<vector<int>> tranpose(matrix[0].size(), vector<int>(matrix.size(), 0));
         for (int i = 0; i < tranpose.size(); i++) {
             for (int j = 0; j < tranpose[i].size(); j++) {
                 tranpose[i][j] = matrix[matrix.size() - j - 1][i];

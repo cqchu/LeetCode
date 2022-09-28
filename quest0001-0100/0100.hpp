@@ -46,8 +46,7 @@ public:
     bool checkTree(TreeNode *p, TreeNode *q) {
         if (p == NULL && q == NULL)
             return true;
-        if ((p == NULL && q != NULL) || (p != NULL && q == NULL) ||
-            (p->val != q->val))
+        if ((p == NULL && q != NULL) || (p != NULL && q == NULL) || (p->val != q->val))
             return false;
         return checkTree(p->left, q->left) & checkTree(p->right, q->right);
     }

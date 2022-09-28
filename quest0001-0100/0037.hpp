@@ -57,16 +57,14 @@ public:
         for (int r = 0; r < 9; r++) {
             vector<set<char>> vsc;
             for (int c = 0; c < 9; c++) {
-                vsc.push_back(
-                    getChoices(board, r, c)); // for each point, find the
-                                              // potential solution
+                vsc.push_back(getChoices(board, r, c)); // for each point, find the
+                                                        // potential solution
             }
             choices.push_back(vsc);
         }
     }
 
-    bool nextBlank(const vector<vector<set<char>>> &choices, int &row,
-                   int &col) {
+    bool nextBlank(const vector<vector<set<char>>> &choices, int &row, int &col) {
         int min = 100;
         row = -1;
         col = -1;

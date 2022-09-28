@@ -69,8 +69,7 @@ public:
         // from right to left
         for (int i = ratings.size() - 1; i > 0; i--) {
             if (ratings[i - 1] > ratings[i]) {
-                leftAndRight[i - 1] =
-                    max(leftAndRight[i] + 1, leftAndRight[i - 1]);
+                leftAndRight[i - 1] = max(leftAndRight[i] + 1, leftAndRight[i - 1]);
             }
         }
         int total = 0;

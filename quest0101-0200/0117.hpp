@@ -66,8 +66,7 @@ public:
                     continue;
                 }
                 if (prePtr == NULL)
-                    levelStart =
-                        curPtr->left != NULL ? curPtr->left : curPtr->right;
+                    levelStart = curPtr->left != NULL ? curPtr->left : curPtr->right;
 
                 if (prePtr != NULL) {
                     Node *preConnectSub =

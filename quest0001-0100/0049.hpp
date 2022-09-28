@@ -57,8 +57,7 @@ public:
             char *ckey = reinterpret_cast<char *>(encode);
             string key(ckey, ckey + 26 * 4);
             if (m.find(key) == m.end()) {
-                m.insert(
-                    pair<string, vector<string>>(key, vector<string>(1, str)));
+                m.insert(pair<string, vector<string>>(key, vector<string>(1, str)));
             } else {
                 m[key].push_back(str);
             }

@@ -36,9 +36,7 @@ public:
         return res;
     }
 
-    vector<int> getRow(int rowIndex) {
-        return generate(rowIndex + 1)[rowIndex];
-    }
+    vector<int> getRow(int rowIndex) { return generate(rowIndex + 1)[rowIndex]; }
 };
 
 #endif

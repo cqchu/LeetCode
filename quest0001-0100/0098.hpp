@@ -47,9 +47,7 @@ public:
         return cheakSubTree(root->left, min, root->val) &
                cheakSubTree(root->right, root->val, max);
     }
-    bool isValidBST(TreeNode *root) {
-        return cheakSubTree(root, -LONG_MAX, LONG_MAX);
-    }
+    bool isValidBST(TreeNode *root) { return cheakSubTree(root, -LONG_MAX, LONG_MAX); }
 };
 
 #endif

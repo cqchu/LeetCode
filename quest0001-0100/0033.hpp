@@ -31,15 +31,13 @@ public:
             int midIdx = (startIdx + endIdx) / 2;
             if (nums[midIdx] == target) {
                 return midIdx;
-            } else if (nums[midIdx] >
-                       nums[startIdx]) { // ascend in the left part
+            } else if (nums[midIdx] > nums[startIdx]) { // ascend in the left part
                 if (nums[midIdx] >= target && nums[startIdx] <= target) {
                     endIdx = midIdx;
                 } else {
                     startIdx = midIdx;
                 }
-            } else if (nums[midIdx] <
-                       nums[startIdx]) { // ascend in the right part
+            } else if (nums[midIdx] < nums[startIdx]) { // ascend in the right part
                 if (nums[midIdx] <= target && nums[endIdx] >= target) {
                     startIdx = midIdx;
                 } else {

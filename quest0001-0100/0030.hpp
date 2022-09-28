@@ -37,8 +37,8 @@ public:
             dict[words[i]]++;
 
         int wordNum = words.size(), wordLen = words[0].length();
-        for (int leftPtr = 0;
-             leftPtr < ((int)s.length()) - wordLen * wordNum + 1; leftPtr++) {
+        for (int leftPtr = 0; leftPtr < ((int)s.length()) - wordLen * wordNum + 1;
+             leftPtr++) {
             map<string, int> existFlag;
             int wordCnt = 0;
             for (wordCnt = 0; wordCnt < wordNum; wordCnt++) {

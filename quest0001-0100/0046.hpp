@@ -22,8 +22,7 @@ Output:
 
 class Solution {
 public:
-    vector<vector<int>> recurse(const vector<int> &nums,
-                                vector<bool> &visitFlag) {
+    vector<vector<int>> recurse(const vector<int> &nums, vector<bool> &visitFlag) {
         vector<vector<int>> res;
         if (nums.size() == 0) {
             vector<int> vi;

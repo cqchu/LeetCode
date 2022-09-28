@@ -19,8 +19,7 @@ Output: 6
 class Solution {
 public:
     int compute(const vector<int> &height, const int left, const int right) {
-        int highest =
-            height[left] > height[right] ? height[right] : height[left];
+        int highest = height[left] > height[right] ? height[right] : height[left];
         int acc = 0;
         for (int i = left + 1; i < right; i++) {
             if (highest > height[i])

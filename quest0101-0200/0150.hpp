@@ -42,8 +42,7 @@ public:
     int evalRPN(vector<string> &tokens) {
         stack<int> si;
         for (string token : tokens) {
-            if (token.size() > 1 ||
-                (token[0] >= '0' && token[0] <= '9')) { // number
+            if (token.size() > 1 || (token[0] >= '0' && token[0] <= '9')) { // number
                 si.push(stoi(token));
             } else {
                 int rhs = si.top();

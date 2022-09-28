@@ -32,10 +32,8 @@ public:
         int length = 0, startIdx = 0, curIdx = 0;
         vector<int> existFlag(128, -1);
         while (curIdx < s.length()) {
-            if (existFlag[s[curIdx]] != -1 &&
-                existFlag[s[curIdx]] >= startIdx) {
-                length =
-                    (length < curIdx - startIdx) ? curIdx - startIdx : length;
+            if (existFlag[s[curIdx]] != -1 && existFlag[s[curIdx]] >= startIdx) {
+                length = (length < curIdx - startIdx) ? curIdx - startIdx : length;
                 startIdx = existFlag[s[curIdx]] + 1;
                 existFlag[s[curIdx]] = curIdx;
             } else

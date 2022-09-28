@@ -40,8 +40,7 @@ public:
         sort(candidates.begin(), candidates.end());
         for (int i = 0; i < candidates.size(); i++) {
             if (candidates[i] < target) {
-                vector<int> tcandidates(candidates.begin() + i + 1,
-                                        candidates.end());
+                vector<int> tcandidates(candidates.begin() + i + 1, candidates.end());
                 vector<vector<int>> tsol =
                     combinationSum2(tcandidates, target - candidates[i]);
                 if (tsol.size() != 0) {
@@ -55,8 +54,7 @@ public:
                 vector<int> vi = {target};
                 sol.push_back(vi);
             }
-            while (i + 1 < candidates.size() &&
-                   candidates[i + 1] == candidates[i]) {
+            while (i + 1 < candidates.size() && candidates[i + 1] == candidates[i]) {
                 i++;
             }
         }

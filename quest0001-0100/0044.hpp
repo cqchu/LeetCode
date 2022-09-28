@@ -58,8 +58,7 @@ public:
     // 构建DP模型，推导DP状态转移函数
     bool isMatch(string s, string p) {
         // 初始化DP矩阵相关设置
-        vector<vector<bool>> dp(s.size() + 1,
-                                vector<bool>(p.size() + 1, false));
+        vector<vector<bool>> dp(s.size() + 1, vector<bool>(p.size() + 1, false));
         dp[0][0] = true;
         for (int i = 1; i < dp.size(); i++) {
             dp[i][0] = false;

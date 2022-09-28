@@ -48,3 +48,4 @@ python gen_template.py -i problem-id    # generate code template
 * 0169, "Majority Element": 很精妙，消元</br>
 * 0174, "Dungeon Game": 倒序dp，因为有加血的过程，正向dp会丢失信息</br>
 * 0187, "Repeated DNA Sequences": 更低overhead的记录方法</br>
+* 0188, "Best Time to Buy and Sell Stock IV": 没太看懂</br>

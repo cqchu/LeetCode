@@ -68,10 +68,8 @@ public:
 
     // consider b = 1, 3, 5, 7, 9; a = 2, 4, 6, 8, 10
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2) {
-        vector<int> &A =
-            nums1.size() > nums2.size() ? nums2 : nums1; // the short one
-        vector<int> &B =
-            nums1.size() <= nums2.size() ? nums2 : nums1; // the long one
+        vector<int> &A = nums1.size() > nums2.size() ? nums2 : nums1;  // the short one
+        vector<int> &B = nums1.size() <= nums2.size() ? nums2 : nums1; // the long one
         int totalLen = nums1.size() + nums2.size();
         int m = A.size(), n = B.size();
 

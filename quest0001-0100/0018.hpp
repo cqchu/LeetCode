@@ -43,15 +43,15 @@ public:
                         do {
                             endPtr--;
                         } while (nums[endPtr + 1] == nums[endPtr]);
-                    } else if (nums[firstPtr] + nums[secondPtr] +
-                                   nums[startPtr] + nums[endPtr] <
+                    } else if (nums[firstPtr] + nums[secondPtr] + nums[startPtr] +
+                                   nums[endPtr] <
                                target) {
                         do {
                             startPtr++;
                         } while (nums[startPtr - 1] == nums[startPtr]);
                     } else {
-                        int tmp[] = {nums[firstPtr], nums[secondPtr],
-                                     nums[startPtr], nums[endPtr]};
+                        int tmp[] = {nums[firstPtr], nums[secondPtr], nums[startPtr],
+                                     nums[endPtr]};
                         vector<int> vtmp(tmp, tmp + 4);
                         res.push_back(vtmp);
                         do {

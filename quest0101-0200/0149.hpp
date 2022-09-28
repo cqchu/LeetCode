@@ -39,10 +39,9 @@ public:
     int maxPoints(vector<vector<int>> &points) {
         if (points.size() == 0 || points.size() == 1)
             return points.size();
-        sort(points.begin(), points.end(),
-             [](const auto &lhs, const auto &rhs) {
-                 return lhs[0] == rhs[0] ? lhs[1] < rhs[1] : lhs[0] < rhs[0];
-             });
+        sort(points.begin(), points.end(), [](const auto &lhs, const auto &rhs) {
+            return lhs[0] == rhs[0] ? lhs[1] < rhs[1] : lhs[0] < rhs[0];
+        });
         vector<map<double, int>> dp;
         map<double, int> m;
         for (int i = 0; i < points.size(); i++)

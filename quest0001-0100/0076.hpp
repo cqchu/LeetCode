@@ -26,8 +26,7 @@ public:
             hist[c]++;
 
         int remaining = t.length();
-        int left = 0, right = 0, minStart = 0,
-            minLen = numeric_limits<int>::max();
+        int left = 0, right = 0, minStart = 0, minLen = numeric_limits<int>::max();
         while (right < s.length()) {
             if (--hist[s[right++]] >= 0)
                 remaining--;
@@ -40,8 +39,7 @@ public:
                     remaining++;
             }
         }
-        return minLen < numeric_limits<int>::max() ? s.substr(minStart, minLen)
-                                                   : "";
+        return minLen < numeric_limits<int>::max() ? s.substr(minStart, minLen) : "";
     }
 };
 

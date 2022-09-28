@@ -45,8 +45,7 @@ public:
                     return false;
                 char tmp = charStack[charStack.size() - 1];
                 charStack.pop_back();
-                if ((tmp == '[' && s[idx] != ']') ||
-                    (tmp == '(' && s[idx] != ')') ||
+                if ((tmp == '[' && s[idx] != ']') || (tmp == '(' && s[idx] != ')') ||
                     (tmp == '{' && s[idx] != '}'))
                     return false;
             }

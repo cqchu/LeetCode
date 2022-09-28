@@ -47,8 +47,8 @@ public:
             res = recurse(board, word, visited, i + 1, j, curDepth + 1);
             visited[i + 1][j] = false;
         }
-        if (res != true && j + 1 < board[0].size() &&
-            visited[i][j + 1] == false && board[i][j + 1] == word[curDepth]) {
+        if (res != true && j + 1 < board[0].size() && visited[i][j + 1] == false &&
+            board[i][j + 1] == word[curDepth]) {
             visited[i][j + 1] = true;
             res = recurse(board, word, visited, i, j + 1, curDepth + 1);
             visited[i][j + 1] = false;

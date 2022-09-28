@@ -31,8 +31,7 @@ class Solution {
 public:
     void reorderList(ListNode *head) {
         vector<ListNode *> stk;
-        for (ListNode *curNode = head; curNode != nullptr;
-             curNode = curNode->next)
+        for (ListNode *curNode = head; curNode != nullptr; curNode = curNode->next)
             stk.push_back(curNode);
 
         int totalNum = stk.size();

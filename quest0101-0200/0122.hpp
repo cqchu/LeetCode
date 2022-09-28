@@ -44,11 +44,9 @@ public:
             buyPrice = prices[0];
 
         for (int i = 1; i < prices.size() - 1; i++) {
-            if (prices[i] <= prices[i - 1] &&
-                prices[i] < prices[i + 1]) // buy it
+            if (prices[i] <= prices[i - 1] && prices[i] < prices[i + 1]) // buy it
                 buyPrice = prices[i];
-            if (prices[i] > prices[i - 1] &&
-                prices[i] >= prices[i + 1]) // sell it
+            if (prices[i] > prices[i - 1] && prices[i] >= prices[i + 1]) // sell it
                 totalProfit = totalProfit + prices[i] - buyPrice;
         }
 

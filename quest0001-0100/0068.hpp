@@ -71,8 +71,7 @@ public:
             return res;
         int curLineLen = 0, startPos = 0, endPos = 0;
         for (int i = 0; i < words.size(); i++) {
-            if (curLineLen + words[i].size() + max(0, (i - startPos)) >
-                maxWidth) {
+            if (curLineLen + words[i].size() + max(0, (i - startPos)) > maxWidth) {
                 int totalSpaceLen, avgSpaceLen, extraSpaceLen;
                 totalSpaceLen = maxWidth - curLineLen;
                 if (endPos - startPos - 1 != 0) {

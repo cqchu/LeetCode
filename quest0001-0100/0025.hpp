@@ -47,8 +47,7 @@ public:
         ListNode *beforeHead = new ListNode(0);
         beforeHead->next = head;
 
-        ListNode *before = beforeHead, *after = NULL, *tmpHead = NULL,
-                 *tmpTail = NULL;
+        ListNode *before = beforeHead, *after = NULL, *tmpHead = NULL, *tmpTail = NULL;
         while (true) {
             if (tmpTail != NULL)
                 before = tmpTail;

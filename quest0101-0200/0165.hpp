@@ -66,13 +66,10 @@ public:
             string srevision2 = version2.substr(pos2, nextDot2 - pos2);
             // cout << pos1 << " " << nextDot1 << "; " << pos2 << " " <<
             // nextDot2 << endl;
-            pos1 =
-                nextDot1 + 1 > version1.size() ? version1.size() : nextDot1 + 1;
-            pos2 =
-                nextDot2 + 1 > version2.size() ? version2.size() : nextDot2 + 1;
+            pos1 = nextDot1 + 1 > version1.size() ? version1.size() : nextDot1 + 1;
+            pos2 = nextDot2 + 1 > version2.size() ? version2.size() : nextDot2 + 1;
 
-            int irevision1 = convert(srevision1),
-                irevision2 = convert(srevision2);
+            int irevision1 = convert(srevision1), irevision2 = convert(srevision2);
             if (irevision1 == irevision2)
                 continue;
             else if (irevision1 < irevision2)

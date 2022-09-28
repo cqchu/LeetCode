@@ -39,8 +39,7 @@ public:
         // sort()
         for (int i = 0; i < candidates.size(); i++) {
             if (candidates[i] < target) {
-                vector<int> tcandidates(candidates.begin() + i,
-                                        candidates.end());
+                vector<int> tcandidates(candidates.begin() + i, candidates.end());
                 vector<vector<int>> tsol =
                     combinationSum(tcandidates, target - candidates[i]);
                 if (tsol.size() != 0) {

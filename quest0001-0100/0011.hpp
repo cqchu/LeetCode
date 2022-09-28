@@ -25,9 +25,8 @@ public:
     int maxArea(vector<int> &height) {
         int curMax = 0, leftIdx = 0, rightIdx = height.size() - 1;
         while (leftIdx < rightIdx) {
-            int minHeight = height[rightIdx] > height[leftIdx]
-                                ? height[leftIdx]
-                                : height[rightIdx];
+            int minHeight =
+                height[rightIdx] > height[leftIdx] ? height[leftIdx] : height[rightIdx];
             int curArea = (rightIdx - leftIdx) * minHeight;
             if (curArea > curMax)
                 curMax = curArea;

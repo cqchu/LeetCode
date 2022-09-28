@@ -24,8 +24,7 @@ class Solution {
 public:
     void nextPermutation(vector<int> &nums) {
         int notDiscernIdx = nums.size() - 2;
-        while (notDiscernIdx >= 0 &&
-               nums[notDiscernIdx] >= nums[notDiscernIdx + 1])
+        while (notDiscernIdx >= 0 && nums[notDiscernIdx] >= nums[notDiscernIdx + 1])
             notDiscernIdx--;
 
         if (notDiscernIdx < 0) {

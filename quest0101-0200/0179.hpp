@@ -31,9 +31,8 @@ public:
         }
 
         std::vector<std::string> strs(nums.size());
-        std::transform(
-            nums.begin(), nums.end(), strs.begin(),
-            [](int num) -> std::string { return std::to_string(num); });
+        std::transform(nums.begin(), nums.end(), strs.begin(),
+                       [](int num) -> std::string { return std::to_string(num); });
 
         std::sort(strs.begin(), strs.end(),
                   [](const std::string &lhs, const std::string &rhs) {

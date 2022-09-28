@@ -90,8 +90,7 @@ public:
             return res;
         unvisited.erase(endWord);
         unvisited.erase(beginWord);
-        unordered_set<string> beginSet = {beginWord}, endSet = {endWord},
-                              intersect;
+        unordered_set<string> beginSet = {beginWord}, endSet = {endWord}, intersect;
         unordered_multimap<string, string> beginPath, endPath;
 
         while (!beginSet.empty() && !endSet.empty()) {
@@ -151,8 +150,7 @@ public:
                 prefix[i].push_back(intersectWord);
                 for (int j = 0; j < postfix.size(); j++) {
                     vector<string> tmp = prefix[i];
-                    tmp.insert(tmp.end(), postfix[j].rbegin(),
-                               postfix[j].rend());
+                    tmp.insert(tmp.end(), postfix[j].rbegin(), postfix[j].rend());
                     res.push_back(tmp);
                 }
             }

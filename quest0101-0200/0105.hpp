@@ -29,8 +29,8 @@ struct TreeNode {
 
 class Solution {
 public:
-    TreeNode *buildSubTree(vector<int> &preorder, vector<int> &inorder,
-                           int preStart, int inStart, int len) {
+    TreeNode *buildSubTree(vector<int> &preorder, vector<int> &inorder, int preStart,
+                           int inStart, int len) {
         if (len == 0)
             return NULL;
         TreeNode *root = new TreeNode(preorder[preStart]);
@@ -39,8 +39,7 @@ public:
             if (inorder[leftLen + inStart] == preorder[preStart])
                 break;
         }
-        root->left =
-            buildSubTree(preorder, inorder, preStart + 1, inStart, leftLen);
+        root->left = buildSubTree(preorder, inorder, preStart + 1, inStart, leftLen);
 
         root->right = buildSubTree(preorder, inorder, preStart + leftLen + 1,
                                    inStart + leftLen + 1, len - leftLen - 1);

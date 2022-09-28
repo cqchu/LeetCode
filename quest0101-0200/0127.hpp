@@ -71,8 +71,7 @@ public:
         return true;
     }
 
-    int ladderLength(string beginWord, string endWord,
-                     vector<string> &wordList) {
+    int ladderLength(string beginWord, string endWord, vector<string> &wordList) {
         if (beginWord.size() != endWord.size())
             return 0;
 
@@ -97,8 +96,7 @@ public:
             }
 
             for (int i = 0; i < wordList.size(); i++) {
-                if (visit[i] == false &&
-                    isConnected(wordList[idx], wordList[i])) {
+                if (visit[i] == false && isConnected(wordList[idx], wordList[i])) {
                     if (wordList[i] == endWord)
                         return depth;
                     q.push(i);

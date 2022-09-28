@@ -31,8 +31,7 @@ above.
 class Solution {
 public:
     // level: cur row,
-    void recurse(int level, vector<int> &pos, int n,
-                 vector<vector<string>> &sol) {
+    void recurse(int level, vector<int> &pos, int n, vector<vector<string>> &sol) {
         if (level == n) {
             vector<string> tmp(n);
             for (int i = 0; i < n; i++) {
