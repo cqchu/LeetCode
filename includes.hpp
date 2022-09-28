@@ -103,6 +103,9 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args... args) {
         IO << "}" << EOL;                                                              \
     }
 
+#define Vec(type) std::vector<type>
+#define Vec2D(type) std::vector<std::vector<type>>
+
 namespace tree {
 
 template <typename T> struct Null;
