@@ -8,6 +8,7 @@
 #include <cmath>
 #include <cstring>
 #include <iostream>
+#include <list>
 #include <map>
 #include <memory>
 #include <numeric>
@@ -19,8 +20,6 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
-
-using namespace std;
 
 #define IO std::cout
 #define IO_WITH_INFO IO << __FILE__ << ":" << __LINE__ << " -> "
@@ -64,7 +63,7 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args... args) {
     print_impl(std::forward<Args>(args)...);
 }
 
-#define LOG_VARS(...)                                                                  \
+#define LOG_EXPRS(...)                                                                 \
     {                                                                                  \
         IO_WITH_INFO << #__VA_ARGS__ << ": ";                                          \
         print_impl(__VA_ARGS__);                                                       \
@@ -80,10 +79,22 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args... args) {
 #define LOG_BIN(expr)                                                                  \
     { IO_WITH_INFO << #expr << ": 0b" << std::bitset<sizeof(expr) * 8>(expr) << EOL; }
 
-#define LOG_MAP(dict)                                                                  \
+#define LOG_SET(expr)                                                                  \
     {                                                                                  \
-        IO_WITH_INFO << #dict << " {" << EOL;                                          \
-        for (auto &&kv : dict) {                                                       \
+        IO_WITH_INFO << #expr << "[" << expr.size() << "] {";                          \
+        for (auto iter = expr.begin(); iter != expr.end();) {                          \
+            IO << (*iter);                                                             \
+            if ((++iter) != expr.end()) {                                              \
+                IO << " ";                                                             \
+            }                                                                          \
+        }                                                                              \
+        IO << "}" << EOL;                                                              \
+    }
+
+#define LOG_MAP(expr)                                                                  \
+    {                                                                                  \
+        IO_WITH_INFO << #expr << " {" << EOL;                                          \
+        for (auto &&kv : expr) {                                                       \
             IO << "    " << kv.first << ": " << kv.second << EOL;                      \
         }                                                                              \
         IO << "}" << EOL;                                                              \
@@ -106,6 +117,67 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args... args) {
 #define Vec(type) std::vector<type>
 #define Vec2D(type) std::vector<std::vector<type>>
 
+namespace list {
+
+template <typename T> struct ListNode {
+    T val;
+    ListNode *next;
+    ListNode() : next(nullptr) {}
+    ListNode(T x) : val(x), next(nullptr) {}
+    ListNode(T x, ListNode *next) : val(x), next(next) {}
+};
+
+template <typename T> struct ListHelper {
+    static inline ListNode<T> *alloc(const std::vector<T> &source) {
+        if (source.size() == 0) {
+            return nullptr;
+        }
+
+        auto head = new ListNode<T>(source[0]);
+        auto pre = head;
+        for (size_t i = 1; i < source.size(); ++i) {
+            auto node = new ListNode<T>(source[i]);
+            pre->next = node;
+            pre = node;
+        }
+        return head;
+    }
+
+    struct ListDeleter {
+        void operator()(ListNode<T> *head) {
+            while (head != nullptr) {
+                auto cur = head;
+                head = head->next;
+                delete cur;
+            }
+        }
+    };
+
+    static inline std::unique_ptr<ListNode<T>, ListDeleter>
+    build(const std::vector<T> &source) {
+        std::unique_ptr<ListNode<T>, ListDeleter> ret{alloc(source)};
+        return std::move(ret);
+    }
+
+    struct DefaultPrinter {
+        std::vector<T> list_vals;
+        void operator()(ListNode<T> *node) { list_vals.push_back(node->val); }
+        ~DefaultPrinter() { LOG_ARRAY(list_vals); }
+    };
+
+    template <typename Visitor = DefaultPrinter>
+    static inline void traverse(ListNode<T> *head, const Visitor &f = {}) {
+        auto &&nonconst_func = const_cast<Visitor &>(f);
+        while (head != nullptr) {
+            auto cur = head;
+            head = head->next;
+            nonconst_func(cur);
+        }
+    }
+};
+
+} // namespace list
+
 namespace tree {
 
 template <typename T> struct Null;
@@ -118,7 +190,7 @@ template <typename T> struct BinaryTreeNode {
     T val;
     BinaryTreeNode *left;
     BinaryTreeNode *right;
-    BinaryTreeNode() : val(0), left(nullptr), right(nullptr) {}
+    BinaryTreeNode() : left(nullptr), right(nullptr) {}
     BinaryTreeNode(T x) : val(x), left(nullptr), right(nullptr) {}
     BinaryTreeNode(T x, BinaryTreeNode *left, BinaryTreeNode *right)
         : val(x), left(left), right(right) {}
@@ -247,5 +319,7 @@ template <typename T> struct BinaryTreeHelper {
 };
 
 } // namespace tree
+
+using namespace std;
 
 #endif
