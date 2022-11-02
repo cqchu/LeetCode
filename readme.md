@@ -49,3 +49,4 @@ python gen_template.py -i problem-id    # generate code template
 * 0174, "Dungeon Game": 倒序dp，因为有加血的过程，正向dp会丢失信息</br>
 * 0187, "Repeated DNA Sequences": 更低overhead的记录方法</br>
 * 0188, "Best Time to Buy and Sell Stock IV": 没太看懂</br>
+* 0207, "Course Schedule": 拓扑排序的问题用DFS来写提升效率</br>

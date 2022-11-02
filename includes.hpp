@@ -17,6 +17,7 @@
 #include <sstream>
 #include <stack>
 #include <string>
+#include <type_traits>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
@@ -24,6 +25,14 @@
 #define IO std::cout
 #define IO_WITH_INFO IO << __FILE__ << ":" << __LINE__ << " -> "
 #define EOL std::endl
+#define HOLDER(x) (x)
+
+template <typename T> void print_impl(T &&inp) { IO << inp << " "; }
+
+template <typename T, typename... Args> void print_impl(T &&inp, Args &&...args) {
+    print_impl(inp);
+    print_impl(std::forward<Args>(args)...);
+}
 
 #define LOG_ARRAY_WITH_RANGE(arr, start, end)                                          \
     {                                                                                  \
@@ -55,13 +64,6 @@
 
 #define LOG_ARRAY2D(arr)                                                               \
     LOG_ARRAY2D_WITH_RANGE(arr, 0, arr.size(), 0, (arr.size() > 0 ? arr[0].size() : 0))
-
-template <typename T> void print_impl(T &&inp) { IO << inp << " "; }
-
-template <typename T, typename... Args> void print_impl(T &&inp, Args... args) {
-    print_impl(inp);
-    print_impl(std::forward<Args>(args)...);
-}
 
 #define LOG_EXPRS(...)                                                                 \
     {                                                                                  \
