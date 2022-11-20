@@ -186,7 +186,7 @@ template <typename T> struct Null;
 
 template <> struct Null<int> { static constexpr int value = INT_MIN; };
 
-template <typename T> inline constexpr T null = Null<T>::value;
+template <typename T> constexpr T null = Null<T>::value;
 
 template <typename T> struct BinaryTreeNode {
     T val;
