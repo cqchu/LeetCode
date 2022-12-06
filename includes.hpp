@@ -4,9 +4,12 @@
 #include <algorithm>
 #include <bitset>
 #include <cassert>
+#include <chrono>
 #include <climits>
 #include <cmath>
+#include <cstdarg>
 #include <cstring>
+#include <functional>
 #include <iostream>
 #include <list>
 #include <map>
@@ -21,6 +24,82 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+
+/*********************** Assert ***********************/
+
+namespace assert_utils {
+
+class AssertHelper {
+    inline static std::string svsprintf(const char *fmt, va_list ap_orig) {
+        int size = 100;
+        char *p;
+
+        if ((p = (char *)malloc(size)) == nullptr)
+            goto err;
+
+        for (;;) {
+            va_list ap;
+            va_copy(ap, ap_orig);
+            int n = vsnprintf(p, size, fmt, ap);
+            va_end(ap);
+
+            if (n < 0)
+                goto err;
+
+            if (n < size) {
+                std::string rst(p);
+                free(p);
+                return rst;
+            }
+
+            size = n + 1;
+
+            char *np = (char *)realloc(p, size);
+            if (!np) {
+                free(p);
+                goto err;
+            } else
+                p = np;
+        }
+
+    err:
+        fprintf(stderr, "could not allocate memory for svsprintf; fmt=%s\n", fmt);
+        __builtin_trap();
+    }
+
+    inline static std::string ssprintf(const char *fmt, ...) {
+        va_list ap;
+        va_start(ap, fmt);
+        auto rst = svsprintf(fmt, ap);
+        va_end(ap);
+        return rst;
+    }
+
+public:
+    inline static void assert_failed_log(const char *file, int line, const char *func,
+                                         const char *expr, const char *msg_fmt, ...) {
+        std::string msg =
+            ssprintf("`%s' should be true at %s:%d: %s", expr, file, line, func);
+        if (msg_fmt) {
+            va_list ap;
+            va_start(ap, msg_fmt);
+            msg.append("\nextra message: ");
+            msg.append(svsprintf(msg_fmt, ap));
+            va_end(ap);
+        }
+        printf("%s\n", msg.c_str());
+    }
+};
+
+} // namespace assert_utils
+
+#define cqassert(expr, msg...)                                                         \
+    if (!(expr)) {                                                                     \
+        ::assert_utils::AssertHelper::assert_failed_log(                               \
+            __FILE__, __LINE__, __PRETTY_FUNCTION__, #expr, ##msg);                    \
+    }
+
+/*********************** IO ***********************/
 
 #define IO std::cout
 #define IO_WITH_INFO IO << __FILE__ << ":" << __LINE__ << " -> "
@@ -116,8 +195,7 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args &&...args)
         IO << "}" << EOL;                                                              \
     }
 
-#define Vec(type) std::vector<type>
-#define Vec2D(type) std::vector<std::vector<type>>
+/*********************** LIST ***********************/
 
 namespace list {
 
@@ -179,6 +257,8 @@ template <typename T> struct ListHelper {
 };
 
 } // namespace list
+
+/*********************** Tree ***********************/
 
 namespace tree {
 
@@ -321,6 +401,107 @@ template <typename T> struct BinaryTreeHelper {
 };
 
 } // namespace tree
+
+/*********************** Benchmark ***********************/
+
+namespace bench {
+
+class TimeRecords {
+    std::unordered_map<std::string, std::chrono::nanoseconds> nano_records;
+    TimeRecords() = default;
+
+    enum class TimeUnit { ns, us, ms, s };
+
+    void log_record_impl(TimeUnit tu) const {
+        std::cout << "Bench Time Records {\n";
+        for (auto &&kv : nano_records) {
+            std::cout << "    " << kv.first << ": ";
+            switch (tu) {
+            case TimeUnit::ns:
+                std::cout << static_cast<size_t>(kv.second.count()) << " ns\n";
+                break;
+            case TimeUnit::us:
+                std::cout << static_cast<size_t>(kv.second.count()) /
+                                 static_cast<long double>(1e3)
+                          << " us\n";
+                break;
+            case TimeUnit::ms:
+                std::cout << static_cast<size_t>(kv.second.count()) /
+                                 static_cast<long double>(1e6)
+                          << " ms\n";
+                break;
+            case TimeUnit::s:
+                std::cout << static_cast<size_t>(kv.second.count()) /
+                                 static_cast<long double>(1e9)
+                          << " s\n";
+                break;
+            default:
+                cqassert(false, "error time unit");
+            }
+        }
+        std::cout << "}" << std::endl;
+    }
+
+public:
+    inline static TimeRecords &inst() {
+        static TimeRecords time_stats;
+        return time_stats;
+    }
+
+    bool add_record_allow_fallible(const std::string &hint,
+                                   const std::chrono::nanoseconds &record) {
+        auto ret = nano_records.emplace(hint, record.count());
+        return ret.second;
+    }
+
+    void add_record(const std::string &hint, const std::chrono::nanoseconds &record) {
+        auto success = add_record_allow_fallible(hint, record);
+        cqassert(success, "%s is already in time records", hint.c_str());
+    }
+
+    void log_record_ns() const { log_record_impl(TimeUnit::ns); }
+
+    void log_record_us() const { log_record_impl(TimeUnit::us); }
+
+    void log_record_ms() const { log_record_impl(TimeUnit::ms); }
+
+    void log_record_s() const { log_record_impl(TimeUnit::s); }
+};
+
+#define TimeRecordsInst ::bench::TimeRecords::inst()
+
+} // namespace bench
+
+#define TimeBenchmark(hint, warm_iter, bench_iter, sync_func, log, workload_exprs)     \
+    {                                                                                  \
+        std::function<void(void)> synchronizer{sync_func};                             \
+        for (size_t _time_bench_iter = 0; _time_bench_iter < warm_iter;                \
+             ++_time_bench_iter) {                                                     \
+            workload_exprs;                                                            \
+        }                                                                              \
+        if (sync_func != nullptr)                                                      \
+            synchronizer();                                                            \
+        auto start = std::chrono::high_resolution_clock::now();                        \
+        for (size_t _time_bench_iter = 0; _time_bench_iter < bench_iter;               \
+             ++_time_bench_iter) {                                                     \
+            workload_exprs;                                                            \
+        }                                                                              \
+        if (sync_func != nullptr)                                                      \
+            synchronizer();                                                            \
+        auto end = std::chrono::high_resolution_clock::now();                          \
+        auto duration =                                                                \
+            std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);         \
+        TimeRecordsInst.add_record(std::string{hint}, duration);                       \
+        if (log) {                                                                     \
+            std::cout << hint << ": " << static_cast<size_t>(duration.count())         \
+                      << " ns" << std::endl;                                           \
+        }                                                                              \
+    }
+
+/*********************** Alias ***********************/
+
+#define Vec(type) std::vector<type>
+#define Vec2D(type) std::vector<std::vector<type>>
 
 using namespace std;
 
