@@ -50,3 +50,4 @@ python gen_template.py -i problem-id    # generate code template
 * 0187, "Repeated DNA Sequences": 更低overhead的记录方法</br>
 * 0188, "Best Time to Buy and Sell Stock IV": 没太看懂</br>
 * 0207, "Course Schedule": 第一眼看起来是个拓扑排序，但这一题我们只需要判断图中是否有环，可以dfs来做</br>
+* 0212, "Word Search II": 把 words 用字典树保存，然后对 board 做 DFS，每次 DFS 之后看看当前 DFS 序列在字典树中是否有，有的话继续 DFS，否则返回</br>
