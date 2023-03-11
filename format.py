@@ -63,7 +63,7 @@ def main():
     )
     parser.add_argument(
         "--clang-format",
-        default=os.getenv("CLANG_FORMAT", "clang-format"),
+        default=os.getenv("CLANG_FORMAT", "clang-format-12"),
         help="clang-format executable name; it can also be "
         "modified via the CLANG_FORMAT environment var",
     )

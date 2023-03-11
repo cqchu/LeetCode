@@ -97,6 +97,7 @@ public:
     if (!(expr)) {                                                                     \
         ::assert_utils::AssertHelper::assert_failed_log(                               \
             __FILE__, __LINE__, __PRETTY_FUNCTION__, #expr, ##msg);                    \
+        assert((expr));                                                                \
     }
 
 /*********************** IO ***********************/
@@ -197,7 +198,7 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args &&...args)
 
 /*********************** LIST ***********************/
 
-namespace list {
+namespace cqlist {
 
 template <typename T> struct ListNode {
     T val;
@@ -208,6 +209,7 @@ template <typename T> struct ListNode {
 };
 
 template <typename T> struct ListHelper {
+private:
     static inline ListNode<T> *alloc(const std::vector<T> &source) {
         if (source.size() == 0) {
             return nullptr;
@@ -233,6 +235,9 @@ template <typename T> struct ListHelper {
         }
     };
 
+public:
+    using NodePtr = ListNode<T> *;
+
     static inline std::unique_ptr<ListNode<T>, ListDeleter>
     build(const std::vector<T> &source) {
         std::unique_ptr<ListNode<T>, ListDeleter> ret{alloc(source)};
@@ -256,15 +261,16 @@ template <typename T> struct ListHelper {
     }
 };
 
-} // namespace list
+} // namespace cqlist
 
 /*********************** Tree ***********************/
 
-namespace tree {
+namespace cqtree {
 
 template <typename T> struct Null;
 
 template <> struct Null<int> { static constexpr int value = INT_MIN; };
+template <> struct Null<float> { static constexpr float value = NAN; };
 
 template <typename T> constexpr T null = Null<T>::value;
 
@@ -278,12 +284,13 @@ template <typename T> struct BinaryTreeNode {
         : val(x), left(left), right(right) {}
 };
 
-template <typename T> struct BinaryTreeHelper {
+template <typename T, T nullval = null<T>> struct BinaryTreeHelper {
+private:
     static inline BinaryTreeNode<T> *alloc(const std::vector<T> &source) {
         if (source.size() == 0) {
             return nullptr;
         }
-        assert(source[0] != null<T>);
+        cqassert(source[0] != nullval, "invalid tree");
 
         auto root = new BinaryTreeNode<T>(source[0]);
         std::queue<BinaryTreeNode<T> *> helper;
@@ -292,14 +299,20 @@ template <typename T> struct BinaryTreeHelper {
         for (size_t i = 1; i < source.size();) {
             BinaryTreeNode<T> *cur = helper.front();
             helper.pop();
-            if (source[i] != null<T>) {
+            if (source[i] != nullval) {
+                cqassert(cur != nullptr, "invalid tree");
                 cur->left = new BinaryTreeNode<T>(source[i]);
                 helper.push(cur->left);
+            } else {
+                helper.push(nullptr);
             }
             i += 1;
-            if (source[i] != null<T>) {
+            if (source[i] != nullval) {
+                cqassert(cur != nullptr, "invalid tree");
                 cur->right = new BinaryTreeNode<T>(source[i]);
                 helper.push(cur->right);
+            } else {
+                helper.push(nullptr);
             }
             i += 1;
         }
@@ -319,6 +332,9 @@ template <typename T> struct BinaryTreeHelper {
 
         void operator()(BinaryTreeNode<T> *root) { free(root); }
     };
+
+public:
+    using NodePtr = BinaryTreeNode<T> *;
 
     static inline std::unique_ptr<BinaryTreeNode<T>, TreeDeleter>
     build(const std::vector<T> &source) {
@@ -400,14 +416,15 @@ template <typename T> struct BinaryTreeHelper {
     }
 };
 
-} // namespace tree
+} // namespace cqtree
 
 /*********************** Benchmark ***********************/
 
-namespace bench {
+namespace cqbench {
 
 class TimeRecords {
-    std::unordered_map<std::string, std::chrono::nanoseconds> nano_records;
+    using NanoRecord = std::pair<size_t, std::chrono::nanoseconds>;
+    std::unordered_map<std::string, NanoRecord> nano_records;
     TimeRecords() = default;
 
     enum class TimeUnit { ns, us, ms, s };
@@ -416,23 +433,27 @@ class TimeRecords {
         std::cout << "Bench Time Records {\n";
         for (auto &&kv : nano_records) {
             std::cout << "    " << kv.first << ": ";
+            size_t iter_times = kv.second.first,
+                   nanoseconds = static_cast<size_t>(kv.second.second.count());
             switch (tu) {
             case TimeUnit::ns:
-                std::cout << static_cast<size_t>(kv.second.count()) << " ns\n";
+                std::cout << std::fixed
+                          << nanoseconds / static_cast<long double>(iter_times)
+                          << " ns\n";
                 break;
             case TimeUnit::us:
-                std::cout << static_cast<size_t>(kv.second.count()) /
-                                 static_cast<long double>(1e3)
+                std::cout << std::fixed
+                          << nanoseconds / static_cast<long double>(1e3 * iter_times)
                           << " us\n";
                 break;
             case TimeUnit::ms:
-                std::cout << static_cast<size_t>(kv.second.count()) /
-                                 static_cast<long double>(1e6)
+                std::cout << std::fixed
+                          << nanoseconds / static_cast<long double>(1e6 * iter_times)
                           << " ms\n";
                 break;
             case TimeUnit::s:
-                std::cout << static_cast<size_t>(kv.second.count()) /
-                                 static_cast<long double>(1e9)
+                std::cout << std::fixed
+                          << nanoseconds / static_cast<long double>(1e9 * iter_times)
                           << " s\n";
                 break;
             default:
@@ -448,14 +469,15 @@ public:
         return time_stats;
     }
 
-    bool add_record_allow_fallible(const std::string &hint,
+    bool add_record_allow_fallible(const std::string &hint, size_t iter_times,
                                    const std::chrono::nanoseconds &record) {
-        auto ret = nano_records.emplace(hint, record.count());
+        auto ret = nano_records.emplace(hint, NanoRecord{iter_times, record.count()});
         return ret.second;
     }
 
-    void add_record(const std::string &hint, const std::chrono::nanoseconds &record) {
-        auto success = add_record_allow_fallible(hint, record);
+    void add_record(const std::string &hint, size_t iter_times,
+                    const std::chrono::nanoseconds &record) {
+        auto success = add_record_allow_fallible(hint, iter_times, record);
         cqassert(success, "%s is already in time records", hint.c_str());
     }
 
@@ -468,9 +490,9 @@ public:
     void log_record_s() const { log_record_impl(TimeUnit::s); }
 };
 
-#define TimeRecordsInst ::bench::TimeRecords::inst()
+} // namespace cqbench
 
-} // namespace bench
+#define TimeRecordsInst ::cqbench::TimeRecords::inst()
 
 #define TimeBenchmark(hint, warm_iter, bench_iter, sync_func, log, workload_exprs)     \
     {                                                                                  \
@@ -491,17 +513,16 @@ public:
         auto end = std::chrono::high_resolution_clock::now();                          \
         auto duration =                                                                \
             std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);         \
-        TimeRecordsInst.add_record(std::string{hint}, duration);                       \
+        TimeRecordsInst.add_record(std::string{hint}, bench_iter, duration);           \
         if (log) {                                                                     \
             std::cout << hint << ": " << static_cast<size_t>(duration.count())         \
-                      << " ns" << std::endl;                                           \
+                      << " ns for " << bench_iter << " iter" << std::endl;             \
         }                                                                              \
     }
 
 /*********************** Alias ***********************/
-
-#define Vec(type) std::vector<type>
-#define Vec2D(type) std::vector<std::vector<type>>
+template <typename T> using Vec = std::vector<T>;
+template <typename T> using Vec2D = std::vector<std::vector<T>>;
 
 using namespace std;
 
