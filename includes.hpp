@@ -9,6 +9,7 @@
 #include <cmath>
 #include <cstdarg>
 #include <cstring>
+#include <deque>
 #include <functional>
 #include <iostream>
 #include <list>
