@@ -183,6 +183,34 @@ template <typename T, typename... Args> void print_impl(T &&inp, Args &&...args)
         IO << "}" << EOL;                                                              \
     }
 
+#define LOG_STACK(expr)                                                                \
+    {                                                                                  \
+        auto copied = expr;                                                            \
+        IO_WITH_INFO << #expr << "[" << 0 << ":" << copied.size() << "]: {";           \
+        while (!copied.empty()) {                                                      \
+            IO << copied.top();                                                        \
+            copied.pop();                                                              \
+            if (!copied.empty()) {                                                     \
+                IO << " ";                                                             \
+            }                                                                          \
+        }                                                                              \
+        IO << "}" << EOL;                                                              \
+    }
+
+#define LOG_QUEUE(expr)                                                                \
+    {                                                                                  \
+        auto copied = expr;                                                            \
+        IO_WITH_INFO << #expr << "[" << 0 << ":" << copied.size() << "]: {";           \
+        while (!copied.empty()) {                                                      \
+            IO << copied.front();                                                      \
+            copied.pop();                                                              \
+            if (!copied.empty()) {                                                     \
+                IO << " ";                                                             \
+            }                                                                          \
+        }                                                                              \
+        IO << "}" << EOL;                                                              \
+    }
+
 #define LOG_LIST(head, val)                                                            \
     {                                                                                  \
         IO_WITH_INFO << #head << ": {";                                                \
