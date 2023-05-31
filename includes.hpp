@@ -336,6 +336,9 @@ private:
                 helper.push(nullptr);
             }
             i += 1;
+            if (i >= source.size()) {
+                break;
+            }
             if (source[i] != nullval) {
                 cqassert(cur != nullptr, "invalid tree");
                 cur->right = new BinaryTreeNode<T>(source[i]);
