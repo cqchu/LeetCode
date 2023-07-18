@@ -53,3 +53,4 @@ python gen_template.py -i problem-id    # generate code template
 * 0212, "Word Search II": 把 words 用字典树保存，然后对 board 做 DFS，每次 DFS 之后看看当前 DFS 序列在字典树中是否有，有的话继续 DFS，否则返回</br>
 * 0215, "Kth Largest Element in an Array": counting sort 或者优先队列</br>
 * 0221, "Maximal Square": 2D DP -> 1D DP</br>
+* 0229, "Majority Element II": 还是对这种投票计数的方式没理解清楚</br>

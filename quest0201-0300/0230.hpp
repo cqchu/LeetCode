@@ -46,7 +46,6 @@ public:
         int vis_count = 0;
         k = k - 1;
         recurse(root, holder, vis_count, k);
-        LOG_ARRAY(holder);
         return holder[k];
     }
 };
