@@ -297,11 +297,13 @@ public:
 namespace cqtree {
 
 template <typename T> struct Null;
+template <typename T> constexpr T null = Null<T>::value;
 
-template <> struct Null<int> { static constexpr int value = INT_MIN; };
+template <> struct Null<int> { static constexpr int value = INT_MIN + 101; };
 template <> struct Null<float> { static constexpr float value = NAN; };
 
-template <typename T> constexpr T null = Null<T>::value;
+constexpr int I32Null = null<int>;
+constexpr float F32Null = null<float>;
 
 template <typename T> struct BinaryTreeNode {
     T val;

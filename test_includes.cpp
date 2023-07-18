@@ -19,8 +19,8 @@ void test_list() {
 
 void test_tree() {
     using namespace cqtree;
-    using IntBinTree = BinaryTreeHelper<int, null<int>>;
-    std::vector<int> vi = {1, null<int>, 3, null<int>, null<int>, null<int>, 4, null<int>, null<int>, null<int>, null<int>, null<int>, null<int>, 5, 6};
+    using IntBinTree = BinaryTreeHelper<int, I32Null>;
+    std::vector<int> vi = {1, I32Null, 3, I32Null, I32Null, I32Null, 4, I32Null, I32Null, I32Null, I32Null, I32Null, I32Null, 5, 6};
     auto tree = IntBinTree::build(vi);
     struct AddOne {
         void operator()(IntBinTree::NodePtr ptr) {
