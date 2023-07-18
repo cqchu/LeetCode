@@ -36,49 +36,16 @@ Constraints:
 
 class Solution {
 public:
-    bool containsNearbyAlmostDuplicate(vector<int> &nums, int indexDiff,
-                                       int valueDiff) {
-        // for (size_t left = 0; left < nums.size(); ++left) {
-        //     for (size_t right = left + 1; right <= min((left + indexDiff),
-        //     nums.size()-1); ++right) {
-        //         if ((abs(nums[left] - nums[right]) <= valueDiff)) {
-        //             return true;
-        //         }
-        //     }
-        // }
-        // return false;
-        std::vector<int> minval(nums.size(), INT_MAX);
-        std::vector<int> maxval(nums.size(), INT_MIN);
-
-        auto update_minmax = [&](size_t index) -> void {
-            minval[index] = INT_MAX;
-            maxval[index] = INT_MIN;
-            for (size_t k = index; k <= index + indexDiff && k < nums.size(); ++k) {
-                minval[index] = std::min(minval[index], nums[k]);
-                maxval[index] = std::max(maxval[index], nums[k]);
-            }
-        };
-
-        update_minmax(0);
-
-        for (size_t i = 1; i < nums.size(); ++i) {
-            if (i + indexDiff < nums.size()) {
-                minval[i] = std::min(minval[i - 1], nums[i + indexDiff]);
-                maxval[i] = std::max(maxval[i - 1], nums[i + indexDiff]);
-            } else {
-                minval[i] = minval[i - 1];
-                maxval[i] = maxval[i - 1];
-            }
-
-            if (nums[i - 1] != nums[i + indexDiff]) {
-                if (nums[i - 1] == minval[i] || nums[i - 1] == maxval[i]) {
-                    update_minmax(i);
-                }
-            }
-
-            if (maxval[i] - minval[i] <= valueDiff) {
+    bool containsNearbyAlmostDuplicate(vector<int> &nums, int k, int t) {
+        map<long long, int> m;
+        int j = 0;
+        for (int i = 0; i < nums.size(); ++i) {
+            if (i - j > k)
+                m.erase(nums[j++]);
+            auto a = m.lower_bound((long long)nums[i] - t);
+            if (a != m.end() && abs(a->first - nums[i]) <= t)
                 return true;
-            }
+            m[nums[i]] = i;
         }
         return false;
     }
